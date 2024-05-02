@@ -1,10 +1,14 @@
 import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export const RestrictedLayout = () => {
   return (
     <div>
       RestrictedLayout
+      <div>
+        <Link to="/register">Register</Link>
+        <Link to="/login">Login</Link>
+      </div>
       <Suspense>
         <Outlet />
       </Suspense>
