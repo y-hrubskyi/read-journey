@@ -1,9 +1,13 @@
+import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { PrivateLayout } from "@/components/Layouts/PrivateLayout/PrivateLayout";
-import RecommendedPage from "@/pages/RecommendedPage/RecommendedPage";
-import LibraryPage from "@/pages/LibraryPage/LibraryPage";
-import ReadingPage from "@/pages/ReadingPage/ReadingPage";
+
+const RecommendedPage = lazy(() =>
+  import("@/pages/RecommendedPage/RecommendedPage")
+);
+const LibraryPage = lazy(() => import("@/pages/LibraryPage/LibraryPage"));
+const ReadingPage = lazy(() => import("@/pages/ReadingPage/ReadingPage"));
 
 const PrivateRoutes = () => {
   return (
