@@ -23,8 +23,11 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Gilroy', sans-serif;
+    color: ${(p) => p.theme.colors.primaryText};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
+    background-color: ${(p) => p.theme.colors.pageBg};
   }
   
   h1,
@@ -42,6 +45,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  button {
+    cursor: pointer;
   }
   
   img {

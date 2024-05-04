@@ -14,7 +14,7 @@ export const theme = Object.freeze({
     modal: "12px",
     section: "12px",
     btn: "30px",
-    container: "30px",
+    wrapper: "30px",
   },
   transition: (prop = "") => `${prop} 250ms linear`,
   spacing: (value) => `${value * 4}px`,
