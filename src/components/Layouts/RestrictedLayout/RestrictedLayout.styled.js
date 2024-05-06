@@ -9,14 +9,17 @@ export const Container = styled(BaseContainer)`
   flex-direction: column;
   gap: ${(p) => p.theme.spacing(2.5)};
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     flex-direction: row;
     gap: ${(p) => p.theme.spacing(4)};
   }
 `;
 
 export const ContentWrapper = styled.div`
-  padding: ${(p) => p.theme.spacing(5)};
+  padding-top: ${(p) => p.theme.spacing(5)};
+  padding-right: ${(p) => p.theme.spacing(5)};
+  padding-bottom: ${(p) => p.theme.spacing(10)};
+  padding-left: ${(p) => p.theme.spacing(5)};
 
   background-color: ${(p) => p.theme.colors.primaryBg};
   border-radius: ${(p) => p.theme.radii.wrapper};
@@ -28,7 +31,7 @@ export const ContentWrapper = styled.div`
     padding-left: ${(p) => p.theme.spacing(16)};
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     flex: 1;
     padding: ${(p) => p.theme.spacing(10)} ${(p) => p.theme.spacing(16)};
   }
@@ -54,7 +57,7 @@ export const SloganHeading = styled.p`
     line-height: 0.9375;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-top: ${(p) => p.theme.spacing(27)};
   }
 `;
@@ -75,11 +78,11 @@ export const PreviewWrapper = styled(ContentWrapper)`
     display: none;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     display: block;
     height: auto;
 
     background-size: 405px auto;
-    background-position: center top 80px;
+    background-position: center bottom 0;
   }
 `;
