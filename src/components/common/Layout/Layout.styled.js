@@ -13,7 +13,7 @@ export const BaseContainer = styled.div`
     padding: ${(p) => p.theme.spacing(8)};
   }
 
-  @media screen and (min-width: 1440px) {
-    width: 1440px;
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
   }
 `;
