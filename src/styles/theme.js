@@ -6,6 +6,8 @@ export const theme = Object.freeze({
     primaryText: "#f9f9f9",
     secondaryText: "#686868",
     accent: "#4f92f7",
+    green: "#30b94d",
+    red: "#e90516",
     btnBorder: "rgba(249, 249, 249, 0.2)",
   },
   radii: {
