@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { registerSchema } from "@/config/validation/registerSchema";
+import { signUp } from "@/store/auth/operations";
 
 import { FormField } from "@/components/common/FormField/FormField";
 import { PasswordField } from "@/components/common/PasswordField/PasswordField";
@@ -17,6 +19,7 @@ import * as SC from "./RegisterForm.styled";
 
 export const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -31,7 +34,7 @@ export const RegisterForm = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(signUp(data));
   };
 
   const isCorrectName = dirtyFields.name && !errors.name;
