@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { loginSchema } from "@/config/validation/loginSchema";
+import { signInSchema } from "@/config/validation/signInSchema";
 import { signIn } from "@/store/auth/operations";
 
 import { FormField } from "@/components/common/FormField/FormField";
@@ -24,7 +24,7 @@ export const LoginForm = () => {
     formState: { errors, dirtyFields },
   } = useForm({
     mode: "onChange",
-    resolver: yupResolver(loginSchema),
+    resolver: yupResolver(signInSchema),
   });
 
   const togglePasswordShown = () => {
