@@ -40,3 +40,23 @@ export const signOut = createAsyncThunk(
     }
   }
 );
+
+export const refreshUser = createAsyncThunk(
+  "auth/current",
+  async (_, { getState, rejectWithValue }) => {
+    try {
+      const persistedAccessToken = getState().auth.accessToken;
+      if (persistedAccessToken === null) {
+        return rejectWithValue("Unable to fetch user");
+      }
+
+      setAuthHeader(persistedAccessToken);
+      const { data } = await API.get("/users/current");
+
+      setAuthHeader(data.token);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
