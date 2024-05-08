@@ -33,6 +33,12 @@ const logoutFulfilled = (state) => {
 const authSlice = createSlice({
   name: "auth",
   initialState,
+  reducers: {
+    setTokens: (state, { payload }) => {
+      state.accessToken = payload.token;
+      state.refreshToken = payload.refreshToken;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(refreshUser.pending, (state) => {
