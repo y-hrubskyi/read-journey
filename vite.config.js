@@ -13,6 +13,7 @@ export default defineConfig({
       "@/pages": "/src/pages",
       "@/routes": "/src/routes",
       "@/services": "/src/services",
+      "@/store": "/src/store",
       "@/styles": "/src/styles",
     },
   },
