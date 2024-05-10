@@ -1,18 +1,19 @@
 import { Suspense } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+
+import { BaseContainer } from "@/components/common/Layout/Layout.styled";
+import { Header } from "@/components/Header/Header";
 
 export const PrivateLayout = () => {
   return (
-    <div>
-      PrivateLayout
-      <div>
-        <Link to="/recommended">Home</Link>
-        <Link to="/library">My library</Link>
-        <Link to="/reading">My training</Link>
-      </div>
-      <Suspense>
-        <Outlet />
-      </Suspense>
-    </div>
+    <BaseContainer>
+      <Header />
+
+      <main>
+        <Suspense>
+          <Outlet />
+        </Suspense>
+      </main>
+    </BaseContainer>
   );
 };
