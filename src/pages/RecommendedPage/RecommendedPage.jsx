@@ -1,4 +1,5 @@
 import { Dashboard } from "@/components/common/Dashboard/Dashboard.styled";
+import { Filters } from "@/components/Filters/Filters";
 import {
   PageContent,
   PageTitle,
@@ -7,7 +8,9 @@ import {
 const RecommendedPage = () => {
   return (
     <>
-      <Dashboard></Dashboard>
+      <Dashboard>
+        <Filters />
+      </Dashboard>
       <PageContent>
         <PageTitle>Recommended</PageTitle>
       </PageContent>
