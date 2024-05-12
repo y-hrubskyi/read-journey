@@ -26,7 +26,7 @@ export const LogOutBtn = styled.button`
   align-self: end;
   justify-self: center;
 
-  padding: ${(p) => p.theme.spacing(2.25)} ${(p) => p.theme.spacing(6.25)};
+  padding: ${(p) => p.theme.spacing(2.25)} ${(p) => p.theme.spacing(4.75)};
 
   font-weight: 700;
   font-size: 14px;
