@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Dashboard = styled.div`
+export const BaseDashboard = styled.div`
   padding: ${(p) => p.theme.spacing(5)};
   width: 100%;
 
@@ -22,9 +22,18 @@ export const Dashboard = styled.div`
 `;
 
 export const Form = styled.form`
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: ${(p) => p.theme.spacing(5)};
+
+  @media screen and (min-width: 768px) {
+    width: 295px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 100%;
+  }
 `;
 
 export const FieldsWrapper = styled.div`
