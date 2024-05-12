@@ -1,5 +1,6 @@
 import { Filters } from "@/components/Filters/Filters";
 import { Guide } from "@/components/Guide/Guide";
+import { Quote } from "@/components/Quote/Quote";
 import {
   PageContent,
   PageTitle,
@@ -12,6 +13,7 @@ const RecommendedPage = () => {
       <SC.Dashboard>
         <Filters />
         <Guide />
+        <Quote />
       </SC.Dashboard>
       <PageContent>
         <PageTitle>Recommended</PageTitle>
