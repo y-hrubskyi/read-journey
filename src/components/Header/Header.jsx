@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 import { Icons } from "@/config/icons";
+import { selectAuthIsLoading } from "@/store/auth/selectors";
 import { signOut } from "@/store/auth/operations";
 
 import { Logo } from "@/components/common/Logo/Logo";
@@ -14,6 +16,7 @@ export const Header = () => {
     () => window.innerWidth < 768
   );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isLoading = useSelector(selectAuthIsLoading);
   const dispatch = useDispatch();
 
   const handleWindowResize = useCallback(() => {
@@ -41,8 +44,17 @@ export const Header = () => {
     if (isMobileMenuOpen) setIsMobileMenuOpen(false);
   };
 
-  const handleLogOutClick = () => {
-    dispatch(signOut());
+  const handleLogOutClick = async () => {
+    try {
+      const signOutPromise = dispatch(signOut()).unwrap();
+      await toast.promise(signOutPromise, {
+        loading: "Logging out...",
+        success: "Logout successful!",
+        error: (error) => error,
+      });
+    } catch (error) {
+      // handled in toast.promise
+    }
   };
 
   return (
@@ -63,7 +75,11 @@ export const Header = () => {
             </SC.MobileMenuIcon>
           </SC.MobileMenuBtn>
         ) : (
-          <SC.LogOutBtn type="button" onClick={handleLogOutClick}>
+          <SC.LogOutBtn
+            type="button"
+            onClick={handleLogOutClick}
+            disabled={isLoading}
+          >
             Log out
           </SC.LogOutBtn>
         )}
@@ -82,7 +98,11 @@ export const Header = () => {
               </SC.MobileMenuIcon>
             </SC.MobileMenuCloseBtn>
             <UserNav onCloseMobileMenu={closeMobileMenu} />
-            <SC.LogOutBtn type="button" onClick={handleLogOutClick}>
+            <SC.LogOutBtn
+              type="button"
+              onClick={handleLogOutClick}
+              disabled={isLoading}
+            >
               Log out
             </SC.LogOutBtn>
           </SC.MobileMenu>

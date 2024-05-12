@@ -10,7 +10,7 @@ export const signUp = createAsyncThunk(
       setAuthHeader(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -23,7 +23,7 @@ export const signIn = createAsyncThunk(
       setAuthHeader(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -36,7 +36,7 @@ export const signOut = createAsyncThunk(
       clearAuthHeader();
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );

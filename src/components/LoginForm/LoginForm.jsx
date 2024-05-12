@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import toast from "react-hot-toast";
 
 import { signInSchema } from "@/config/validation/signInSchema";
+import { selectAuthIsLoading } from "@/store/auth/selectors";
 import { signIn } from "@/store/auth/operations";
 
 import { FormField } from "@/components/common/FormField/FormField";
@@ -17,6 +19,7 @@ import * as SC from "./LoginForm.styled";
 
 export const LoginForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
+  const isLoading = useSelector(selectAuthIsLoading);
   const dispatch = useDispatch();
   const {
     register,
@@ -31,8 +34,17 @@ export const LoginForm = () => {
     setPasswordShown((prevState) => !prevState);
   };
 
-  const onSubmit = (data) => {
-    dispatch(signIn(data));
+  const onSubmit = async (data) => {
+    try {
+      const signInPromise = dispatch(signIn(data)).unwrap();
+      await toast.promise(signInPromise, {
+        loading: "Logging in...",
+        success: "Login successful!",
+        error: (error) => error,
+      });
+    } catch (error) {
+      // handled in toast.promise
+    }
   };
 
   const isCorrectEmail = dirtyFields.email && !errors.email;
@@ -79,7 +91,9 @@ export const LoginForm = () => {
         </PasswordField>
       </SC.FieldsWrapper>
 
-      <SC.LoginSubmitBtn type="submit">Log In</SC.LoginSubmitBtn>
+      <SC.LoginSubmitBtn type="submit" disabled={isLoading}>
+        Log In
+      </SC.LoginSubmitBtn>
       <AuthPageLink to="/register">Don&apos;t have an account?</AuthPageLink>
     </form>
   );

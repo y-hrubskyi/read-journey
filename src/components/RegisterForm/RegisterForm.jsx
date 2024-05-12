@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import toast from "react-hot-toast";
 
 import { signUpSchema } from "@/config/validation/signUpSchema";
+import { selectAuthIsLoading } from "@/store/auth/selectors";
 import { signUp } from "@/store/auth/operations";
 
 import { FormField } from "@/components/common/FormField/FormField";
@@ -19,6 +21,7 @@ import * as SC from "./RegisterForm.styled";
 
 export const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
+  const isLoading = useSelector(selectAuthIsLoading);
   const dispatch = useDispatch();
   const {
     register,
@@ -33,8 +36,17 @@ export const RegisterForm = () => {
     setPasswordShown((prevState) => !prevState);
   };
 
-  const onSubmit = (data) => {
-    dispatch(signUp(data));
+  const onSubmit = async (data) => {
+    try {
+      const signUpPromise = dispatch(signUp(data)).unwrap();
+      await toast.promise(signUpPromise, {
+        loading: "Registering...",
+        success: "Registration successful!",
+        error: (error) => error,
+      });
+    } catch (error) {
+      // handled in toast.promise
+    }
   };
 
   const isCorrectName = dirtyFields.name && !errors.name;
@@ -99,7 +111,9 @@ export const RegisterForm = () => {
         </PasswordField>
       </SC.FieldsWrapper>
 
-      <AuthSubmitBtn type="submit">Registration</AuthSubmitBtn>
+      <AuthSubmitBtn type="submit" disabled={isLoading}>
+        Registration
+      </AuthSubmitBtn>
       <AuthPageLink to="login">Already have an account?</AuthPageLink>
     </form>
   );

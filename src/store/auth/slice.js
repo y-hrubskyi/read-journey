@@ -12,22 +12,33 @@ const initialState = {
   accessToken: null,
   refreshToken: null,
   isLoggedIn: false,
+  isLoading: false,
   isRefreshing: false,
 };
 
-const loginFulfilled = (state, { payload }) => {
+const authPending = (state) => {
+  state.isLoading = true;
+};
+
+const authRejected = (state) => {
+  state.isLoading = false;
+};
+
+const authInFulfilled = (state, { payload }) => {
   state.user.name = payload.name;
   state.user.email = payload.email;
   state.accessToken = payload.token;
   state.refreshToken = payload.refreshToken;
   state.isLoggedIn = true;
+  state.isLoading = false;
 };
 
-const logoutFulfilled = (state) => {
+const authOutFulfilled = (state) => {
   state.user = { name: null, email: null };
   state.accessToken = null;
   state.refreshToken = null;
   state.isLoggedIn = false;
+  state.isLoading = false;
 };
 
 const authSlice = createSlice({
@@ -55,10 +66,18 @@ const authSlice = createSlice({
       .addCase(refreshUser.rejected, (state) => {
         state.isRefreshing = false;
       })
-      .addMatcher(isAnyOf(signUp.fulfilled, signIn.fulfilled), loginFulfilled)
+      .addMatcher(
+        isAnyOf(signUp.pending, signIn.pending, signOut.pending),
+        authPending
+      )
+      .addMatcher(isAnyOf(signUp.fulfilled, signIn.fulfilled), authInFulfilled)
+      .addMatcher(
+        isAnyOf(signUp.rejected, signIn.rejected, signOut.rejected),
+        authRejected
+      )
       .addMatcher(
         isAnyOf(signOut.fulfilled, signOut.rejected),
-        logoutFulfilled
+        authOutFulfilled
       ),
 });
 
