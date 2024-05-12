@@ -77,6 +77,8 @@ export const MobileMenuBtn = styled.button`
 export const MobileMenuIcon = styled.svg`
   width: 100%;
   height: 100%;
+
+  stroke: currentColor;
 `;
 
 export const MobileMenuBackdrop = styled.div`

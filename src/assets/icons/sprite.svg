@@ -19,11 +19,11 @@
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.16" d="M2.666 2.667l58.667 58.666"></path>
     </symbol>
     <symbol id="icon-mobile-menu" viewBox="0 0 64 64">
-      <path fill="none" stroke="#f9f9f9" style="stroke: var(--color1, #f9f9f9)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.5714" d="M8 32h48M8 16h48M24 48h32"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.5714" d="M8 32h48M8 16h48M24 48h32"></path>
     </symbol>
     <symbol id="icon-cross" viewBox="0 0 64 64">
-      <path fill="none" stroke="#f9f9f9" style="stroke: var(--color1, #f9f9f9)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.5714" d="M48 16l-32 32"></path>
-      <path fill="none" stroke="#f9f9f9" style="stroke: var(--color1, #f9f9f9)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.5714" d="M16 16l32 32"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.5714" d="M48 16l-32 32"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.5714" d="M16 16l32 32"></path>
     </symbol>
   </defs>
 </svg>
