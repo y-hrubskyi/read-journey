@@ -1,16 +1,16 @@
-import { Dashboard } from "@/components/common/Dashboard/Dashboard.styled";
 import { Filters } from "@/components/Filters/Filters";
 import {
   PageContent,
   PageTitle,
 } from "@/components/common/PageContent/PageContent.styled";
+import * as SC from "./RecommendedPage.styled";
 
 const RecommendedPage = () => {
   return (
     <>
-      <Dashboard>
+      <SC.Dashboard>
         <Filters />
-      </Dashboard>
+      </SC.Dashboard>
       <PageContent>
         <PageTitle>Recommended</PageTitle>
       </PageContent>
