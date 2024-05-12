@@ -44,6 +44,12 @@ export const Header = () => {
     if (isMobileMenuOpen) setIsMobileMenuOpen(false);
   };
 
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   const handleLogOutClick = async () => {
     try {
       const signOutPromise = dispatch(signOut()).unwrap();
@@ -86,7 +92,7 @@ export const Header = () => {
       </SC.UserMenu>
 
       {isMobileMenuOpen && (
-        <SC.MobileMenuBackdrop>
+        <SC.MobileMenuBackdrop onClick={handleBackdropClick}>
           <SC.MobileMenu>
             <SC.MobileMenuCloseBtn
               type="button"
