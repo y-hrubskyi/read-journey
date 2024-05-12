@@ -7,8 +7,8 @@ import { selectAuthIsLoading } from "@/store/auth/selectors";
 import { signOut } from "@/store/auth/operations";
 
 import { Logo } from "@/components/common/Logo/Logo";
-import { UserNav } from "@/components/UserNav/UserNav";
-import { UserBar } from "@/components/UserBar/UserBar";
+import { UserNav } from "@/components/common/UserNav/UserNav";
+import { UserBar } from "@/components/common/UserBar/UserBar";
 import * as SC from "./Header.styled";
 
 export const Header = () => {
