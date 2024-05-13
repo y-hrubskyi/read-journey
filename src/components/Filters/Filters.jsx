@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { useBookFilters } from "@/hooks/useBookFilters";
-import { filterBooksSchema } from "@/config/validation/filterBooksSchema";
+import { bookFiltersSchema } from "@/config/validation/bookFiltersSchema";
 
 import {
   Form,
@@ -27,7 +27,7 @@ export const Filters = ({ onSubmit }) => {
       author: authorFromUrl,
     },
     mode: "onChange",
-    resolver: yupResolver(filterBooksSchema),
+    resolver: yupResolver(bookFiltersSchema),
   });
 
   const title = watch("title");

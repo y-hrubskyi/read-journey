@@ -10,7 +10,7 @@ Yup.addMethod(Yup.object, "atLeastOneOf", function (list) {
   });
 });
 
-export const filterBooksSchema = Yup.object()
+export const bookFiltersSchema = Yup.object()
   .shape({
     title: Yup.string().trim(),
     author: Yup.string().trim(),
