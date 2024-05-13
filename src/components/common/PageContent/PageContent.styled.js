@@ -12,7 +12,7 @@ export const PageContent = styled.div`
   }
 `;
 
-export const PageTitle = styled.h1`
+export const PageTitle = styled.h2`
   font-weight: 700;
   font-size: 20px;
   line-height: 1;
