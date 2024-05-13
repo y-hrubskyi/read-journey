@@ -17,3 +17,13 @@ export const Dashboard = styled(BaseDashboard)`
     gap: ${(p) => p.theme.spacing(5)};
   }
 `;
+
+export const HeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: ${(p) => p.theme.spacing(5.5)};
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: ${(p) => p.theme.spacing(5)};
+  }
+`;
