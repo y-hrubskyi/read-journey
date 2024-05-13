@@ -88,9 +88,14 @@ export const MobileMenuBackdrop = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: rgba(20, 20, 20, 0.6);
+  background-color: ${(p) =>
+    p["data-mob-menu-open"] ? "rgba(20, 20, 20, 0.6)" : "transparent"};
 
   z-index: 100;
+  transform: translateX(${(p) => (p["data-mob-menu-open"] ? "0%" : "100%")});
+
+  transition: ${(p) => p.theme.transition("background-color")},
+    ${(p) => p.theme.transition("transform")};
 `;
 
 export const MobileMenu = styled.div`
