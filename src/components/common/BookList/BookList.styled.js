@@ -7,6 +7,7 @@ export const BookList = styled.ul`
   gap: ${(p) => p.theme.spacing(5)};
 
   @media screen and (min-width: 768px) {
+    justify-content: start;
     column-gap: ${(p) => p.theme.spacing(6.25)};
     row-gap: ${(p) => p.theme.spacing(6.75)};
   }
