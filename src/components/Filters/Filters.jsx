@@ -12,7 +12,7 @@ import {
 import { FormField } from "@/components/common/FormField/FormField";
 import * as SC from "./Filters.styled";
 
-export const Filters = () => {
+export const Filters = ({ onSubmit }) => {
   const {
     register,
     handleSubmit,
@@ -21,10 +21,6 @@ export const Filters = () => {
     mode: "onChange",
     resolver: yupResolver(filterBooksSchema),
   });
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
 
   const isCorrectTitle = dirtyFields.title && !errors.title;
   const hasErrorTitle = errors.title;

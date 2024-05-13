@@ -5,13 +5,18 @@ import {
   PageContent,
   PageTitle,
 } from "@/components/common/PageContent/PageContent.styled";
+
 import * as SC from "./RecommendedPage.styled";
 
 const RecommendedPage = () => {
+  const filterSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <>
       <SC.Dashboard>
-        <Filters />
+        <Filters onSubmit={filterSubmit} />
         <Guide />
         <Quote />
       </SC.Dashboard>
