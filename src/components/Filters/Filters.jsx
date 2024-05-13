@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { useBookFilters } from "@/hooks/useBookFilters";
 import { filterBooksSchema } from "@/config/validation/filterBooksSchema";
 
 import {
@@ -14,12 +15,17 @@ import { FormField } from "@/components/common/FormField/FormField";
 import * as SC from "./Filters.styled";
 
 export const Filters = ({ onSubmit }) => {
+  const { title: titleFromUrl, author: authorFromUrl } = useBookFilters();
   const {
     register,
     watch,
     handleSubmit,
     formState: { errors },
   } = useForm({
+    defaultValues: {
+      title: titleFromUrl,
+      author: authorFromUrl,
+    },
     mode: "onChange",
     resolver: yupResolver(filterBooksSchema),
   });
