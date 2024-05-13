@@ -10,22 +10,27 @@ import {
   SubmitBtn,
 } from "@/components/common/Dashboard/Dashboard.styled";
 import { FormField } from "@/components/common/FormField/FormField";
+
 import * as SC from "./Filters.styled";
 
 export const Filters = ({ onSubmit }) => {
   const {
     register,
+    watch,
     handleSubmit,
-    formState: { errors, dirtyFields },
+    formState: { errors },
   } = useForm({
     mode: "onChange",
     resolver: yupResolver(filterBooksSchema),
   });
 
-  const isCorrectTitle = dirtyFields.title && !errors.title;
-  const hasErrorTitle = errors.title;
-  const isCorrectAuthor = dirtyFields.author && !errors.author;
-  const hasErrorAuthor = errors.author;
+  const title = watch("title");
+  const author = watch("author");
+
+  const isCorrectTitle = title && !errors.title;
+  const hasErrorTitle = errors.title || (errors[""] && !title && !author);
+  const isCorrectAuthor = author && !errors.author;
+  const hasErrorAuthor = errors.author || (errors[""] && !author && !title);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -37,7 +42,7 @@ export const Filters = ({ onSubmit }) => {
           isCorrect={isCorrectTitle}
           correctMessage="Title is correct"
           hasError={hasErrorTitle}
-          errorMessage={errors.title?.message}
+          errorMessage={errors.title?.message || errors[""]?.message}
         >
           <SC.TitleInput
             id="title"
@@ -53,7 +58,7 @@ export const Filters = ({ onSubmit }) => {
           isCorrect={isCorrectAuthor}
           correctMessage="Author is correct"
           hasError={hasErrorAuthor}
-          errorMessage={errors.author?.message}
+          errorMessage={errors.author?.message || errors[""]?.message}
         >
           <SC.AuthorInput
             id="author"

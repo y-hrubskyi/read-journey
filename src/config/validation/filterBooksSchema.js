@@ -1,9 +1,18 @@
 import * as Yup from "yup";
 
-export const filterBooksSchema = Yup.object().shape({
-  title: Yup.string().required("Title is required").min(2, "Too Short").trim(),
-  author: Yup.string()
-    .required("Author is required")
-    .min(2, "Too Short")
-    .trim(),
+Yup.addMethod(Yup.object, "atLeastOneOf", function (list) {
+  return this.test({
+    name: "atLeastOneOf",
+    message: "${path} must have at least one of these keys: ${keys}",
+    exclusive: true,
+    params: { keys: list.join(", ") },
+    test: (value) => value == null || list.some((f) => !!value[f]),
+  });
 });
+
+export const filterBooksSchema = Yup.object()
+  .shape({
+    title: Yup.string().trim(),
+    author: Yup.string().trim(),
+  })
+  .atLeastOneOf(["title", "author"]);
