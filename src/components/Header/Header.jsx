@@ -44,6 +44,12 @@ export const Header = () => {
     if (isMobileMenuOpen) setIsMobileMenuOpen(false);
   };
 
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   const handleLogOutClick = async () => {
     try {
       const signOutPromise = dispatch(signOut()).unwrap();
@@ -85,29 +91,30 @@ export const Header = () => {
         )}
       </SC.UserMenu>
 
-      {isMobileMenuOpen && (
-        <SC.MobileMenuBackdrop>
-          <SC.MobileMenu>
-            <SC.MobileMenuCloseBtn
-              type="button"
-              onClick={toggleMobileMenu}
-              aria-label="close mobile menu"
-            >
-              <SC.MobileMenuIcon>
-                <use href={Icons.cross}></use>
-              </SC.MobileMenuIcon>
-            </SC.MobileMenuCloseBtn>
-            <UserNav onCloseMobileMenu={closeMobileMenu} />
-            <SC.LogOutBtn
-              type="button"
-              onClick={handleLogOutClick}
-              disabled={isLoading}
-            >
-              Log out
-            </SC.LogOutBtn>
-          </SC.MobileMenu>
-        </SC.MobileMenuBackdrop>
-      )}
+      <SC.MobileMenuBackdrop
+        onClick={handleBackdropClick}
+        data-mob-menu-open={isMobileMenuOpen}
+      >
+        <SC.MobileMenu>
+          <SC.MobileMenuCloseBtn
+            type="button"
+            onClick={toggleMobileMenu}
+            aria-label="close mobile menu"
+          >
+            <SC.MobileMenuIcon>
+              <use href={Icons.cross}></use>
+            </SC.MobileMenuIcon>
+          </SC.MobileMenuCloseBtn>
+          <UserNav onCloseMobileMenu={closeMobileMenu} />
+          <SC.LogOutBtn
+            type="button"
+            onClick={handleLogOutClick}
+            disabled={isLoading}
+          >
+            Log out
+          </SC.LogOutBtn>
+        </SC.MobileMenu>
+      </SC.MobileMenuBackdrop>
     </SC.Header>
   );
 };

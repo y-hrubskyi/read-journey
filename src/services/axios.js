@@ -18,10 +18,11 @@ export const clearAuthHeader = () => {
 instance.interceptors.response.use(
   (response) => response,
   async (error) => {
-    if (
-      error.response.status === 401 &&
-      !error.request.responseURL.includes("signin")
-    ) {
+    const hasForbiddenRoutes =
+      error.request.responseURL.includes("signin") ||
+      error.request.responseURL.includes("refresh");
+
+    if (error.response?.status === 401 && !hasForbiddenRoutes) {
       try {
         const refreshToken = store.getState().auth.refreshToken;
         setAuthHeader(refreshToken);
