@@ -8,8 +8,10 @@ import { Filters } from "@/components/Filters/Filters";
 import { Guide } from "@/components/Guide/Guide";
 import { Quote } from "@/components/Quote/Quote";
 import {
-  PageContent,
+  BookListPageContent,
+  HeaderWrapper,
   PageTitle,
+  ContentWrapper,
 } from "@/components/common/PageContent/PageContent.styled";
 import { BookList } from "@/components/common/BookList/BookList";
 import { Paginator } from "@/components/common/Paginator/Paginator";
@@ -54,13 +56,15 @@ const RecommendedPage = () => {
         <Guide />
         <Quote />
       </SC.Dashboard>
-      <PageContent>
-        <SC.HeaderWrapper>
+      <BookListPageContent>
+        <HeaderWrapper>
           <PageTitle>Recommended</PageTitle>
           <Paginator page={page} totalPages={totalPages} setPage={setPage} />
-        </SC.HeaderWrapper>
-        {books.length > 0 && <BookList books={books} />}
-      </PageContent>
+        </HeaderWrapper>
+        <ContentWrapper>
+          {books.length > 0 && <BookList books={books} />}
+        </ContentWrapper>
+      </BookListPageContent>
     </>
   );
 };
