@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import { usePagination } from "@/hooks/usePagination";
-import { useBookFilters } from "@/hooks/useBookFilters";
 import API from "@/services/axios";
 
 import { Filters } from "@/components/Filters/Filters";
@@ -22,11 +21,12 @@ import * as SC from "./RecommendedPage.styled";
 
 const RecommendedPage = () => {
   const [books, setBooks] = useState([]);
-  const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { page, limit, setPage } = usePagination();
-  const { title, author, setBookFilter } = useBookFilters();
+  const [totalPages, setTotalPages] = useState(1);
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const { limit, page, setPage } = usePagination();
 
   useEffect(() => {
     (async () => {
@@ -54,8 +54,8 @@ const RecommendedPage = () => {
 
   const filterSubmit = (data) => {
     setPage(1);
-    setBookFilter("title", data.title);
-    setBookFilter("author", data.author);
+    setTitle(data.title);
+    setAuthor(data.author);
   };
 
   const emptyData = books.length === 0;
