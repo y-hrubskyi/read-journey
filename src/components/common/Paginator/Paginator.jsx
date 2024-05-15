@@ -2,9 +2,9 @@ import { Icons } from "@/config/icons";
 
 import * as SC from "./Paginator.styled";
 
-export const Paginator = ({ page, totalPages, setPage }) => {
-  const prevBtnDisabled = page === 1;
-  const nextBtnDisabled = page === totalPages;
+export const Paginator = ({ page, totalPages, setPage, noContent }) => {
+  const prevBtnDisabled = page === 1 || noContent;
+  const nextBtnDisabled = page === totalPages || noContent;
 
   return (
     <SC.BtnWrapper>

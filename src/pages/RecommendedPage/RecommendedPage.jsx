@@ -15,18 +15,25 @@ import {
 } from "@/components/common/PageContent/PageContent.styled";
 import { BookList } from "@/components/common/BookList/BookList";
 import { Paginator } from "@/components/common/Paginator/Paginator";
+import { Loader } from "@/components/common/Loader/Loader";
+import { Placeholder } from "@/components/common/Placeholder/Placeholder";
 
 import * as SC from "./RecommendedPage.styled";
 
 const RecommendedPage = () => {
   const [books, setBooks] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const { page, limit, setPage } = usePagination();
   const { title, author, setBookFilter } = useBookFilters();
 
   useEffect(() => {
     (async () => {
       try {
+        setIsLoading(true);
+        setError(null);
+
         let validPage = page;
         if (isNaN(parseInt(page)) || page <= 0) validPage = 1;
 
@@ -38,7 +45,9 @@ const RecommendedPage = () => {
         setBooks(data.results);
         setTotalPages(data.totalPages || 1);
       } catch (error) {
-        //
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
       }
     })();
   }, [page, limit, title, author]);
@@ -48,6 +57,14 @@ const RecommendedPage = () => {
     setBookFilter("title", data.title);
     setBookFilter("author", data.author);
   };
+
+  const emptyData = books.length === 0;
+  const loading = !error && isLoading;
+  const hasError = !isLoading && error;
+  const content = !isLoading && !error && !emptyData;
+  const noData = !isLoading && !error && emptyData;
+
+  const disabledPaginationBtns = noData || hasError;
 
   return (
     <>
@@ -59,10 +76,22 @@ const RecommendedPage = () => {
       <BookListPageContent>
         <HeaderWrapper>
           <PageTitle>Recommended</PageTitle>
-          <Paginator page={page} totalPages={totalPages} setPage={setPage} />
+          <Paginator
+            page={page}
+            totalPages={totalPages}
+            setPage={setPage}
+            noContent={disabledPaginationBtns}
+          />
         </HeaderWrapper>
         <ContentWrapper>
-          {books.length > 0 && <BookList books={books} />}
+          {content && <BookList books={books} />}
+          {loading && <Loader />}
+          {hasError && <Placeholder>Oops... {error}</Placeholder>}
+          {noData && (
+            <Placeholder>
+              Nothing found. Please check your spelling or try other terms
+            </Placeholder>
+          )}
         </ContentWrapper>
       </BookListPageContent>
     </>
