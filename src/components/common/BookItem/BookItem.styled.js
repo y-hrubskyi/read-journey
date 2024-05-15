@@ -12,6 +12,7 @@ export const BookImg = styled.img`
   margin-bottom: ${(p) => p.theme.spacing(2)};
 
   border-radius: ${(p) => p.theme.radii.img};
+  cursor: pointer;
 `;
 
 export const BookTitle = styled.h3`
