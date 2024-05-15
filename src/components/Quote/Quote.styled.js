@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import BooksIMG from "@/assets/img/books.webp";
+
 export const QuoteWrapper = styled.div`
   display: none;
 
@@ -14,11 +16,14 @@ export const QuoteWrapper = styled.div`
   }
 `;
 
-export const BooksIcons = styled.span`
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 1;
-  letter-spacing: -0.02em;
+export const BooksIcons = styled.div`
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+
+  background: url(${BooksIMG});
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 export const QuoteText = styled.p`
