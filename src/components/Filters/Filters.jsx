@@ -7,11 +7,11 @@ import {
   Form,
   FieldsWrapper,
   FormTitle,
+  TitleInput,
+  AuthorInput,
   SubmitBtn,
-} from "@/components/common/Dashboard/Dashboard.styled";
+} from "@/components/common/Dashboard/Form.styled";
 import { FormField } from "@/components/common/FormField/FormField";
-
-import * as SC from "./Filters.styled";
 
 export const Filters = ({ onSubmit }) => {
   const {
@@ -44,7 +44,7 @@ export const Filters = ({ onSubmit }) => {
           hasError={hasErrorTitle}
           errorMessage={errors.title?.message || errors[""]?.message}
         >
-          <SC.TitleInput
+          <TitleInput
             id="title"
             {...register("title")}
             type="text"
@@ -60,7 +60,7 @@ export const Filters = ({ onSubmit }) => {
           hasError={hasErrorAuthor}
           errorMessage={errors.author?.message || errors[""]?.message}
         >
-          <SC.AuthorInput
+          <AuthorInput
             id="author"
             {...register("author")}
             type="text"

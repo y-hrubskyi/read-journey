@@ -6,7 +6,7 @@ import {
   AnotherPageLink,
   AnotherPageLinkBtn,
   ArrowIcon,
-} from "@/components/common/Dashboard/Dashboard.styled";
+} from "@/components/common/Dashboard/InfoBlock.styled";
 import * as SC from "./Guide.styled";
 
 export const Guide = () => {
