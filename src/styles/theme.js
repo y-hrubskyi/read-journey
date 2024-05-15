@@ -3,6 +3,7 @@ export const theme = Object.freeze({
     pageBg: "#141414",
     primaryBg: "#1f1f1f",
     secondaryBg: "#262626",
+    backdrop: "rgba(20, 20, 20, 0.6)",
     primaryText: "#f9f9f9",
     secondaryText: "#686868",
     accent: "#4f92f7",
