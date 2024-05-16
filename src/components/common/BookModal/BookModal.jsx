@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 import { ModalTypes } from "@/config/modals";
 import { selectOwnLibrary } from "@/store/books/selectors";
@@ -13,11 +14,20 @@ export const BookModal = ({ isOpen, onClose, book }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleBookActionClick = () => {
+  const handleBookActionClick = async () => {
     if (isOwn) {
-      navigate(`/reading/${book._id}`);
-    } else {
-      dispatch(addToLibraryById(book._id));
+      return navigate(`/reading/${book._id}`);
+    }
+
+    try {
+      const addingBookPromise = dispatch(addToLibraryById(book._id)).unwrap();
+      await toast.promise(addingBookPromise, {
+        loading: "Adding...",
+        success: "Added to library!",
+        error: (error) => error,
+      });
+    } catch (error) {
+      // handled in toast.promise
     }
   };
 
