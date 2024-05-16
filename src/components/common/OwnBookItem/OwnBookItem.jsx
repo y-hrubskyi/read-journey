@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 import { Icons } from "@/config/icons";
 import { useModal } from "@/hooks/useModal";
@@ -18,8 +19,19 @@ export const OwnBookItem = ({ book }) => {
   const { isModalOpen, toggleModal } = useModal();
   const dispatch = useDispatch();
 
-  const handleRemoveBook = () => {
-    dispatch(removeFromLibraryById(book._id));
+  const handleRemoveBook = async () => {
+    try {
+      const removingBookPromise = dispatch(
+        removeFromLibraryById(book._id)
+      ).unwrap();
+      await toast.promise(removingBookPromise, {
+        loading: "Removing...",
+        success: "Removed from library!",
+        error: (error) => error,
+      });
+    } catch (error) {
+      // handled in toast.promise
+    }
   };
 
   return (
