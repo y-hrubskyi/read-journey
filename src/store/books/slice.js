@@ -20,7 +20,7 @@ const booksSlice = createSlice({
         state.library = payload;
       })
       .addCase(removeFromLibraryById.fulfilled, (state, { payload }) => {
-        state.library.push(payload);
+        state.library = state.library.filter((book) => book._id !== payload.id);
       })
       .addMatcher(
         isAnyOf(addToLibraryNewBook.fulfilled, addToLibraryById.fulfilled),
