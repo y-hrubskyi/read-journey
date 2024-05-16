@@ -34,4 +34,7 @@ export const BookAuthor = styled.h4`
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.secondaryText};
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
