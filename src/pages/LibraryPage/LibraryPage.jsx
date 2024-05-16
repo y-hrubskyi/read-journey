@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectOwnLibrary } from "@/store/books/selectors";
+import { fetchOwnLibrary } from "@/store/books/operations";
 
 import { AddBook } from "@/components/AddBook/AddBook";
 import { RecommendedBooks } from "@/components/RecommendedBooks/RecommendedBooks";
@@ -11,13 +12,13 @@ import {
   HeaderWrapper,
   PageTitle,
 } from "@/components/common/PageContent/PageContent.styled";
-import { BookList } from "@/components/common/BookList/BookList";
+import { BookList } from "@/components/common/BookList/BookList.styled";
+import { OwnBookItem } from "@/components/common/OwnBookItem/OwnBookItem";
 import { Loader } from "@/components/common/Loader/Loader";
 import { Placeholder } from "@/components/common/Placeholder/Placeholder";
 import { DarkenedText } from "@/components/common/Placeholder/Placeholder.styled";
 
 import * as SC from "./LibraryPage.styled";
-import { fetchOwnLibrary } from "@/store/books/operations";
 
 const LibraryPage = () => {
   const library = useSelector(selectOwnLibrary);
@@ -57,7 +58,13 @@ const LibraryPage = () => {
           <PageTitle>My library</PageTitle>
         </HeaderWrapper>
         <ContentWrapper>
-          {content && <BookList books={library} />}
+          {content && (
+            <BookList>
+              {library.map((book) => (
+                <OwnBookItem key={book._id} book={book} />
+              ))}
+            </BookList>
+          )}
           {loading && <Loader />}
           {hasError && <Placeholder>Oops... {error}</Placeholder>}
           {noData && (
