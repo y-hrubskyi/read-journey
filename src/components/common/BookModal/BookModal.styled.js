@@ -1,12 +1,5 @@
 import styled from "styled-components";
 
-export const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const BookImg = styled.img`
   width: 140px;
   height: 213px;
