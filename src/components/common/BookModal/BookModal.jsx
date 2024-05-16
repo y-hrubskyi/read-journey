@@ -1,9 +1,28 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { ModalTypes } from "@/config/modals";
+import { selectOwnLibrary } from "@/store/books/selectors";
+import { addToLibraryById } from "@/store/books/operations";
 
 import { ModalBase } from "@/components/common/ModalBase/ModalBase";
 import * as SC from "./BookModal.styled";
 
 export const BookModal = ({ isOpen, onClose, book }) => {
+  const library = useSelector(selectOwnLibrary);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleBookActionClick = () => {
+    if (isOwn) {
+      navigate(`/reading/${book._id}`);
+    } else {
+      dispatch(addToLibraryById(book._id));
+    }
+  };
+
+  const isOwn = library.find((ownBook) => book._id === ownBook._id);
+
   return (
     <ModalBase isOpen={isOpen} onClose={onClose} type={ModalTypes.CONTENT}>
       <SC.ModalContent>
@@ -13,7 +32,9 @@ export const BookModal = ({ isOpen, onClose, book }) => {
         <SC.BookPages>
           {book.totalPages} {book.totalPages === 1 ? "page" : "pages"}
         </SC.BookPages>
-        <SC.ActionBookBtn type="button">Add to library</SC.ActionBookBtn>
+        <SC.ActionBookBtn type="button" onClick={handleBookActionClick}>
+          {isOwn ? "Start reading" : "Add to library"}
+        </SC.ActionBookBtn>
       </SC.ModalContent>
     </ModalBase>
   );
