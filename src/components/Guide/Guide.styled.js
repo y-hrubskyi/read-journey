@@ -54,6 +54,10 @@ export const Description = styled.p`
   line-height: 1.28571;
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.secondaryText};
+
+  @media screen and (min-width: 768px) {
+    max-width: 197px;
+  }
 `;
 
 export const AccentText = styled.span`

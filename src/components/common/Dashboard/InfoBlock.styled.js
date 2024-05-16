@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export const InfoWrapper = styled.div`
   padding: ${(p) => p.theme.spacing(5)};
+  width: 100%;
 
   background-color: ${(p) => p.theme.colors.secondaryBg};
   border-radius: 12px;
