@@ -33,8 +33,8 @@ export const AddBook = () => {
   const hasErrorTitle = errors.title;
   const isCorrectAuthor = dirtyFields.author && !errors.author;
   const hasErrorAuthor = errors.author;
-  const isCorrectPages = dirtyFields.pages && !errors.pages;
-  const hasErrorPages = errors.pages;
+  const isCorrectPages = dirtyFields.totalPages && !errors.totalPages;
+  const hasErrorPages = errors.totalPages;
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -73,16 +73,16 @@ export const AddBook = () => {
           />
         </FormField>
         <FormField
-          id="pages"
+          id="totalPages"
           label="Number of pages:"
           isCorrect={isCorrectPages}
           correctMessage="Number of pages is correct"
           hasError={hasErrorPages}
-          errorMessage={errors.pages?.message}
+          errorMessage={errors.totalPages?.message}
         >
           <SC.PagesInput
-            id="pages"
-            {...register("pages")}
+            id="totalPages"
+            {...register("totalPages")}
             type="text"
             data-is-correct={isCorrectPages}
             data-has-error={hasErrorPages}

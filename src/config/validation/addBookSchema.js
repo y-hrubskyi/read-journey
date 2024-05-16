@@ -7,7 +7,7 @@ export const addBookSchema = Yup.object().shape({
   author: Yup.string()
     .required("The author is required")
     .matches(/^[a-zA-Z0-9_\- ]{3,20}$/, "Enter a valid Author*"),
-  pages: Yup.number()
+  totalPages: Yup.number()
     .typeError("Number of pages must be a number")
     .required("Number of pages is required")
     .min(1, "Min value 1")
