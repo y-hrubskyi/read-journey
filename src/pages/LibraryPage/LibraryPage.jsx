@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import API from "@/services/axios";
+import { selectOwnLibrary } from "@/store/books/selectors";
 
 import { AddBook } from "@/components/AddBook/AddBook";
 import { RecommendedBooks } from "@/components/RecommendedBooks/RecommendedBooks";
@@ -16,9 +17,11 @@ import { Placeholder } from "@/components/common/Placeholder/Placeholder";
 import { DarkenedText } from "@/components/common/Placeholder/Placeholder.styled";
 
 import * as SC from "./LibraryPage.styled";
+import { fetchOwnLibrary } from "@/store/books/operations";
 
 const LibraryPage = () => {
-  const [books, setBooks] = useState([]);
+  const library = useSelector(selectOwnLibrary);
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -28,17 +31,16 @@ const LibraryPage = () => {
         setIsLoading(true);
         setError(null);
 
-        const { data } = await API.get(`/books/own`);
-        setBooks(data);
+        await dispatch(fetchOwnLibrary()).unwrap();
       } catch (error) {
         setError(error.message);
       } finally {
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, [dispatch]);
 
-  const emptyData = books.length === 0;
+  const emptyData = library.length === 0;
   const loading = !error && isLoading;
   const hasError = !isLoading && error;
   const content = !isLoading && !error && !emptyData;
@@ -55,7 +57,7 @@ const LibraryPage = () => {
           <PageTitle>My library</PageTitle>
         </HeaderWrapper>
         <ContentWrapper>
-          {content && <BookList books={books} />}
+          {content && <BookList books={library} />}
           {loading && <Loader />}
           {hasError && <Placeholder>Oops... {error}</Placeholder>}
           {noData && (
