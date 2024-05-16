@@ -1,4 +1,5 @@
 import { AddBook } from "@/components/AddBook/AddBook";
+import { RecommendedBooks } from "@/components/RecommendedBooks/RecommendedBooks";
 import {
   BookListPageContent,
   ContentWrapper,
@@ -13,6 +14,7 @@ const LibraryPage = () => {
     <>
       <SC.Dashboard>
         <AddBook />
+        <RecommendedBooks />
       </SC.Dashboard>
       <BookListPageContent>
         <HeaderWrapper>
