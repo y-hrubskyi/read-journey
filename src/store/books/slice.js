@@ -1,0 +1,33 @@
+import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+
+import {
+  fetchOwnLibrary,
+  addToLibraryNewBook,
+  addToLibraryById,
+  removeFromLibraryById,
+} from "./operations";
+
+const initialState = {
+  library: [],
+};
+
+const booksSlice = createSlice({
+  name: "books",
+  initialState,
+  extraReducers: (builder) =>
+    builder
+      .addCase(fetchOwnLibrary.fulfilled, (state, { payload }) => {
+        state.library = payload;
+      })
+      .addCase(removeFromLibraryById.fulfilled, (state, { payload }) => {
+        state.library.push(payload);
+      })
+      .addMatcher(
+        isAnyOf(addToLibraryNewBook.fulfilled, addToLibraryById.fulfilled),
+        (state, { payload }) => {
+          state.library.push(payload);
+        }
+      ),
+});
+
+export const booksReducer = booksSlice.reducer;
