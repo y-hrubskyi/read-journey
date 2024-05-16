@@ -55,7 +55,7 @@ export const BaseInput = styled.input`
       }
 
       if (p["data-has-error"]) {
-        return p.theme.colors.red;
+        return p.theme.colors.red();
       }
 
       return "transparent";
@@ -100,7 +100,7 @@ export const CorrectIcon = styled(BaseValidInputIcon)`
 `;
 
 export const ErrorIcon = styled(BaseValidInputIcon)`
-  fill: ${(p) => p.theme.colors.red};
+  fill: ${(p) => p.theme.colors.red()};
 `;
 
 export const BaseValidationMessage = styled.p`
@@ -125,5 +125,5 @@ export const CorrectMessage = styled(BaseValidationMessage)`
 `;
 
 export const ErrorMessage = styled(BaseValidationMessage)`
-  color: ${(p) => p.theme.colors.red};
+  color: ${(p) => p.theme.colors.red()};
 `;

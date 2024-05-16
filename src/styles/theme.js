@@ -8,7 +8,7 @@ export const theme = Object.freeze({
     secondaryText: "#686868",
     accent: "#4f92f7",
     green: "#30b94d",
-    red: "#e90516",
+    red: (alpha = 1) => `rgba(232, 80, 80, ${alpha})`,
     btnBorder: "rgba(249, 249, 249, 0.2)",
   },
   radii: {
