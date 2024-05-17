@@ -4,9 +4,9 @@ import API from "@/services/axios";
 
 export const fetchOwnLibrary = createAsyncThunk(
   "books/fetchOwnLibrary",
-  async (_, { rejectWithValue }) => {
+  async (searchParams, { rejectWithValue }) => {
     try {
-      const { data } = await API.get("/books/own");
+      const { data } = await API.get(`/books/own?${searchParams}`);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
