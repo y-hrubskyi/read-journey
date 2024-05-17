@@ -17,3 +17,9 @@ export const Dashboard = styled(BaseDashboard)`
     gap: ${(p) => p.theme.spacing(19.5)};
   }
 `;
+
+export const Controllers = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${(p) => p.theme.spacing(5)};
+`;

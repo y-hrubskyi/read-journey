@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { selectOwnLibrary } from "@/store/books/selectors";
 import { fetchOwnLibrary } from "@/store/books/operations";
+import { usePagination } from "@/hooks/usePagination";
 
 import { AddBook } from "@/components/AddBook/AddBook";
 import { RecommendedBooks } from "@/components/RecommendedBooks/RecommendedBooks";
@@ -12,6 +13,7 @@ import {
   HeaderWrapper,
   PageTitle,
 } from "@/components/common/PageContent/PageContent.styled";
+import { Paginator } from "@/components/common/Paginator/Paginator";
 import { SelectBase } from "@/components/common/SelectBase/SelectBase";
 import { BookList } from "@/components/common/BookList/BookList.styled";
 import { OwnBookItem } from "@/components/common/OwnBookItem/OwnBookItem";
@@ -34,6 +36,7 @@ const LibraryPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState("");
+  const { limit, page, setPage } = usePagination();
 
   useEffect(() => {
     (async () => {
@@ -53,11 +56,28 @@ const LibraryPage = () => {
     })();
   }, [dispatch, status]);
 
-  const emptyData = library.length === 0;
+  const selectStatus = (value) => {
+    setPage(1);
+    setStatus(value);
+  };
+
+  const paginatedLibrary = library.slice((page - 1) * limit, page * limit);
+
+  const emptyData = paginatedLibrary.length === 0;
   const loading = !error && isLoading;
   const hasError = !isLoading && error;
   const content = !isLoading && !error && !emptyData;
   const noData = !isLoading && !error && emptyData;
+
+  const disabledPaginationBtns = noData || hasError;
+
+  if (
+    library.length > 0 &&
+    paginatedLibrary.length === 0 &&
+    library.length / limit < page
+  ) {
+    setPage(Math.ceil(library.length / limit));
+  }
 
   return (
     <>
@@ -68,18 +88,30 @@ const LibraryPage = () => {
       <BookListPageContent>
         <HeaderWrapper>
           <PageTitle>My library</PageTitle>
-          <SelectBase
-            name="language"
-            options={statusOptions}
-            defaultValue={statusOptions[statusOptions.length - 1]}
-            onChange={setStatus}
-          />
-        </HeaderWrapper>{" "}
+          <SC.Controllers>
+            <Paginator
+              page={page}
+              totalPages={Math.ceil(library.length / limit)}
+              setPage={setPage}
+              noContent={disabledPaginationBtns}
+            />
+            <SelectBase
+              name="language"
+              options={statusOptions}
+              defaultValue={statusOptions[statusOptions.length - 1]}
+              onChange={selectStatus}
+            />
+          </SC.Controllers>
+        </HeaderWrapper>
         <ContentWrapper>
           {content && (
             <BookList>
-              {library.map((book) => (
-                <OwnBookItem key={book._id} book={book} />
+              {paginatedLibrary.map((book) => (
+                <OwnBookItem
+                  key={book._id}
+                  book={book}
+                  decrementPage={() => {}}
+                />
               ))}
             </BookList>
           )}
@@ -88,7 +120,7 @@ const LibraryPage = () => {
           {noData && (
             <Placeholder>
               To start training, add
-              <DarkenedText>some of your books</DarkenedText>
+              <DarkenedText> some of your books </DarkenedText>
               or from the recommended ones
             </Placeholder>
           )}
