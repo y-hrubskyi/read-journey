@@ -17,8 +17,8 @@ export const RemoveBookBtn = styled.button`
   width: 28px;
   height: 28px;
 
-  background-color: ${(p) => p.theme.colors.red(0.1)};
-  border: 1px solid ${(p) => p.theme.colors.red(0.2)};
+  background-color: ${(p) => p.theme.colors.redWithAlfa(0.1)};
+  border: 1px solid ${(p) => p.theme.colors.redWithAlfa(0.2)};
   border-radius: 100%;
 `;
 
@@ -27,5 +27,5 @@ export const TrashIcon = styled.svg`
   height: 14px;
 
   fill: none;
-  stroke: ${(p) => p.theme.colors.red()};
+  stroke: ${(p) => p.theme.colors.redWithAlfa()};
 `;
