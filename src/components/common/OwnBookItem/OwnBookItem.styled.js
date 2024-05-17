@@ -26,5 +26,6 @@ export const TrashIcon = styled.svg`
   width: 14px;
   height: 14px;
 
+  fill: none;
   stroke: ${(p) => p.theme.colors.red()};
 `;
