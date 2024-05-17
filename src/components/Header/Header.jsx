@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { Icons } from "@/config/icons";
 import { selectAuthIsLoading } from "@/store/auth/selectors";
 import { signOut } from "@/store/auth/operations";
+import { clearLibrary } from "@/store/books/slice";
 
 import { Logo } from "@/components/common/Logo/Logo";
 import { UserNav } from "@/components/common/UserNav/UserNav";
@@ -68,6 +69,8 @@ export const Header = () => {
       });
     } catch (error) {
       // handled in toast.promise
+    } finally {
+      dispatch(clearLibrary());
     }
   };
 

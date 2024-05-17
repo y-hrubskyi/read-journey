@@ -14,6 +14,11 @@ const initialState = {
 const booksSlice = createSlice({
   name: "books",
   initialState,
+  reducers: {
+    clearLibrary: (state) => {
+      state.library = [];
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(fetchOwnLibrary.fulfilled, (state, { payload }) => {
@@ -29,5 +34,7 @@ const booksSlice = createSlice({
         }
       ),
 });
+
+export const { clearLibrary } = booksSlice.actions;
 
 export const booksReducer = booksSlice.reducer;
