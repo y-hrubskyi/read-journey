@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { InfoTitle } from "@/components/common/Dashboard/InfoBlock.styled";
+import { BaseBookImg } from "@/components/common/BookItem/BookItem.styled";
 
 export const RecommendedBooksTitle = styled(InfoTitle)`
   margin-bottom: ${(p) => p.theme.spacing(5)};
@@ -24,13 +25,9 @@ export const BookItem = styled.li`
   background-color: transparent;
 `;
 
-export const BookImg = styled.img`
+export const BookImg = styled(BaseBookImg)`
   width: 100%;
   height: 107px;
-  margin-bottom: ${(p) => p.theme.spacing(2)};
-
-  border-radius: ${(p) => p.theme.radii.img};
-  cursor: pointer;
 `;
 
 export const BookTitle = styled.h3`

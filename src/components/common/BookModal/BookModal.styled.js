@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const BookImg = styled.img`
+import { BaseBookImg } from "@/components/common/BookItem/BookItem.styled";
+
+export const BookImg = styled(BaseBookImg)`
   width: 140px;
   height: 213px;
   margin-bottom: ${(p) => p.theme.spacing(4)};
-
-  border-radius: ${(p) => p.theme.radii.img};
 
   @media screen and (min-width: 768px) {
     width: 153px;
