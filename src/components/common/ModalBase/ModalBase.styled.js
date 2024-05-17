@@ -63,6 +63,13 @@ export const NotificationModal = styled(BaseModal)`
   }
 `;
 
+export const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const CloseBtn = styled.button`
   position: absolute;
   top: 16px;

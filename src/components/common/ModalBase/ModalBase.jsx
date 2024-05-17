@@ -1,9 +1,9 @@
 import Modal from "react-modal";
 
+import { ModalTypes } from "@/config/modals";
 import { Icons } from "@/config/icons";
 
 import * as SC from "./ModalBase.styled";
-import { ModalTypes } from "@/config/modals";
 
 Modal.setAppElement("#root");
 
@@ -39,7 +39,7 @@ export const ModalBase = ({ isOpen, onClose, type, children }) => {
           <use href={Icons.cross}></use>
         </SC.CrossIcon>
       </SC.CloseBtn>
-      {children}
+      <SC.ModalContent>{children}</SC.ModalContent>
     </Modal>
   );
 };

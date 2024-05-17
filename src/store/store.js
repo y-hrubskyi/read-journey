@@ -10,10 +10,12 @@ import {
 } from "redux-persist";
 
 import { authReducer } from "@/store/auth/slice";
+import { booksReducer } from "@/store/books/slice";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    books: booksReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

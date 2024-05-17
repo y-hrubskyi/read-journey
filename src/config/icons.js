@@ -11,4 +11,5 @@ export const Icons = {
   cross: new URL("@/assets/icons/sprite.svg#icon-cross", import.meta.url),
   arrow: new URL("@/assets/icons/sprite.svg#icon-arrow", import.meta.url),
   chevron: new URL("@/assets/icons/sprite.svg#icon-chevron", import.meta.url),
+  trash: new URL("@/assets/icons/sprite.svg#icon-trash", import.meta.url),
 };
