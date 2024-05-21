@@ -70,7 +70,7 @@ const ReadingPage = () => {
       <SC.BookReadingPageContent>
         <HeaderWrapper>
           <PageTitle>My reading</PageTitle>
-          {book?.timeLeftToRead && (
+          {hours && (
             <SC.ReadingTime>
               {hours} hours and {minutes} minutes left
             </SC.ReadingTime>
