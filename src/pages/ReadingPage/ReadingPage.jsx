@@ -46,6 +46,10 @@ const ReadingPage = () => {
     })();
   }, [bookId]);
 
+  const toggleReading = () => {
+    setIsReading((prevState) => !prevState);
+  };
+
   const loading = !error && isLoading;
   const hasError = !isLoading && error;
   const content = !isLoading && !error && book;
@@ -54,7 +58,12 @@ const ReadingPage = () => {
   return (
     <>
       <SC.Dashboard>
-        <AddReading isReading={isReading} />
+        <AddReading
+          isReading={isReading}
+          toggleReading={toggleReading}
+          bookId={bookId}
+          setBook={setBook}
+        />
         <RecommendedBooks />
       </SC.Dashboard>
       <SC.BookReadingPageContent>

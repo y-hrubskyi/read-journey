@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import toast from "react-hot-toast";
 
 import { addReadingSchema } from "@/config/validation/addReadingSchema";
+import API from "@/services/axios";
 
 import {
   Form,
@@ -10,21 +13,53 @@ import {
   SubmitBtn,
 } from "@/components/common/Dashboard/Form.styled";
 import { FormField } from "@/components/common/FormField/FormField";
+import { BookReadModal } from "@/components/BookReadModal/BookReadModal";
 
 import * as SC from "./AddReading.styled";
 
-export const AddReading = ({ isReading }) => {
+export const AddReading = ({ isReading, toggleReading, bookId, setBook }) => {
+  const [isNotifyShown, setIsNotifyShown] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors, dirtyFields },
+    reset,
   } = useForm({
     mode: "onChange",
     resolver: yupResolver(addReadingSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const toggleNotify = () => {
+    setIsNotifyShown((prevState) => !prevState);
+  };
+
+  const onSubmit = async (data) => {
+    const loadingMessage = "Wait a moment...";
+    const successMessage = `Reading ${isReading ? "stopped" : "started"}`;
+    const reqUrl = `/books/reading/${isReading ? "finish" : "start"}`;
+
+    const toastId = toast.loading(loadingMessage);
+    try {
+      const { data: resData } = await API.post(reqUrl, {
+        id: bookId,
+        page: data.page,
+      });
+
+      toast.dismiss(toastId);
+
+      if (resData.status === "done") {
+        toggleNotify();
+      } else {
+        toast.success(successMessage);
+      }
+
+      toggleReading();
+      setBook(resData);
+      reset();
+    } catch (error) {
+      toast.dismiss(toastId);
+      toast.error(error.response.data.message);
+    }
   };
 
   const isCorrectPage = dirtyFields.page && !errors.page;
@@ -54,6 +89,10 @@ export const AddReading = ({ isReading }) => {
         </FieldsWrapper>
         <SubmitBtn type="submit">To {isReading ? "stop" : "start"}</SubmitBtn>
       </Form>
+
+      {isNotifyShown && (
+        <BookReadModal isOpen={isNotifyShown} onClose={toggleNotify} />
+      )}
     </>
   );
 };
