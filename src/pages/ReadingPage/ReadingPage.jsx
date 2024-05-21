@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import API from "@/services/axios";
 
 import { AddReading } from "@/components/AddReading/AddReading";
-import { RecommendedBooks } from "@/components/RecommendedBooks/RecommendedBooks";
 import {
   ContentWrapper,
   HeaderWrapper,
@@ -67,7 +66,6 @@ const ReadingPage = () => {
           bookId={bookId}
           setBook={setBook}
         />
-        <RecommendedBooks />
       </SC.Dashboard>
       <SC.BookReadingPageContent>
         <HeaderWrapper>
