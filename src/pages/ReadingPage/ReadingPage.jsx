@@ -1,3 +1,6 @@
+import { useState } from "react";
+
+import { AddReading } from "@/components/AddReading/AddReading";
 import {
   ContentWrapper,
   HeaderWrapper,
@@ -7,9 +10,13 @@ import {
 import * as SC from "./ReadingPage.styled";
 
 const ReadingPage = () => {
+  const [isReading, setIsReading] = useState(false);
+
   return (
     <>
-      <SC.Dashboard></SC.Dashboard>
+      <SC.Dashboard>
+        <AddReading isReading={isReading} />
+      </SC.Dashboard>
       <SC.BookReadingPageContent>
         <HeaderWrapper>
           <PageTitle>My reading</PageTitle>
