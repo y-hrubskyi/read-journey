@@ -55,6 +55,9 @@ const ReadingPage = () => {
   const content = !isLoading && !error && book;
   const noData = !isLoading && !error && !book;
 
+  const hours = book?.timeLeftToRead?.hours;
+  const minutes = book?.timeLeftToRead?.minutes;
+
   return (
     <>
       <SC.Dashboard>
@@ -69,6 +72,11 @@ const ReadingPage = () => {
       <SC.BookReadingPageContent>
         <HeaderWrapper>
           <PageTitle>My reading</PageTitle>
+          {book?.timeLeftToRead && (
+            <SC.ReadingTime>
+              {hours} hours and {minutes} minutes left
+            </SC.ReadingTime>
+          )}
         </HeaderWrapper>
         <ContentWrapper>
           {content && <MyBook book={book} isReading={isReading} />}

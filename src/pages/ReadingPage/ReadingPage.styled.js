@@ -33,3 +33,18 @@ export const BookReadingPageContent = styled(BasePageContent)`
     min-height: 651px;
   }
 `;
+
+export const ReadingTime = styled.p`
+  align-self: self-start;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  color: ${(p) => p.theme.colors.secondaryText};
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.28571;
+  }
+`;
