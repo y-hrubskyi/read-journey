@@ -12,4 +12,15 @@ export const Icons = {
   arrow: new URL("@/assets/icons/sprite.svg#icon-arrow", import.meta.url),
   chevron: new URL("@/assets/icons/sprite.svg#icon-chevron", import.meta.url),
   trash: new URL("@/assets/icons/sprite.svg#icon-trash", import.meta.url),
+  start: new URL("@/assets/icons/sprite.svg#icon-start", import.meta.url),
+  stop: new URL("@/assets/icons/sprite.svg#icon-stop", import.meta.url),
+  hourglass: new URL(
+    "@/assets/icons/sprite.svg#icon-hourglass",
+    import.meta.url
+  ),
+  pieChart: new URL(
+    "@/assets/icons/sprite.svg#icon-pie-chart",
+    import.meta.url
+  ),
+  chart: new URL("@/assets/icons/sprite.svg#icon-chart", import.meta.url),
 };
