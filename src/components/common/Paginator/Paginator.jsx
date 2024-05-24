@@ -13,6 +13,7 @@ export const Paginator = ({ page, totalPages, setPage, noContent }) => {
         onClick={() => setPage(page - 1)}
         disabled={prevBtnDisabled}
         data-disabled={prevBtnDisabled}
+        aria-label="previous page"
       >
         <SC.PrevChevronIcon>
           <use href={Icons.chevron}></use>
@@ -23,6 +24,7 @@ export const Paginator = ({ page, totalPages, setPage, noContent }) => {
         onClick={() => setPage(page + 1)}
         disabled={nextBtnDisabled}
         data-disabled={nextBtnDisabled}
+        aria-label="next page"
       >
         <SC.ChevronIcon>
           <use href={Icons.chevron}></use>

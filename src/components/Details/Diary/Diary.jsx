@@ -72,7 +72,11 @@ const SessionItem = ({
             {speed} {speed === 1 ? "page" : "pages"} per hour
           </SC.ReadingSpeed>
         </SC.ChartWrapper>
-        <SC.RemoveReadingBtn type="button" onClick={handleRemoveReading}>
+        <SC.RemoveReadingBtn
+          type="button"
+          onClick={handleRemoveReading}
+          aria-label="remove reading session"
+        >
           <SC.TrashIcon>
             <use href={Icons.trash}></use>
           </SC.TrashIcon>

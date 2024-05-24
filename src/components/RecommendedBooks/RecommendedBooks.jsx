@@ -84,7 +84,7 @@ export const RecommendedBooks = () => {
 
       <AnotherPageLinksWrapper>
         <AnotherPageLink to="/recommended">Home</AnotherPageLink>
-        <AnotherPageLinkBtn to="/recommended">
+        <AnotherPageLinkBtn to="/recommended" aria-label="go to my home page">
           <ArrowIcon>
             <use href={Icons.arrow}></use>
           </ArrowIcon>

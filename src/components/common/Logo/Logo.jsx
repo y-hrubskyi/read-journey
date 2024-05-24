@@ -4,7 +4,7 @@ import * as SC from "./Logo.styled";
 
 export const Logo = ({ isPrivateLayout }) => {
   return (
-    <SC.Logo to="/">
+    <SC.Logo to="/" aria-label="read journey logo">
       <SC.LogoIcon>
         <use href={Icons.logo}></use>
       </SC.LogoIcon>
