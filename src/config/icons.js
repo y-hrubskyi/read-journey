@@ -22,4 +22,5 @@ export const Icons = {
     "@/assets/icons/sprite.svg#icon-pie-chart",
     import.meta.url
   ),
+  chart: new URL("@/assets/icons/sprite.svg#icon-chart", import.meta.url),
 };
