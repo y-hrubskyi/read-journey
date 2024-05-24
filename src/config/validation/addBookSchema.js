@@ -3,7 +3,7 @@ import * as Yup from "yup";
 export const addBookSchema = Yup.object().shape({
   title: Yup.string()
     .required("Book title is required")
-    .matches(/^[a-zA-Z0-9_\- ]{1,20}$/, "Enter a valid Title*"),
+    .matches(/^[\w\s,:;'".!?&-]{1,100}$/, "Enter a valid Title*"),
   author: Yup.string()
     .required("The author is required")
     .matches(/^[a-zA-Z0-9_\- ]{3,20}$/, "Enter a valid Author*"),
