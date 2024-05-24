@@ -22,4 +22,11 @@ export const Controllers = styled.div`
   display: flex;
   align-items: center;
   gap: ${(p) => p.theme.spacing(5)};
+
+  @media screen and (max-width: 374px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: ${(p) => p.theme.spacing(2)};
+    width: 100%;
+  }
 `;

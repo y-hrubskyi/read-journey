@@ -26,6 +26,11 @@ export const BookListPageContent = styled(BasePageContent)`
 export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 374px) {
+    gap: ${(p) => p.theme.spacing(3)};
+    flex-wrap: wrap;
+  }
 `;
 
 export const PageTitle = styled.h2`
