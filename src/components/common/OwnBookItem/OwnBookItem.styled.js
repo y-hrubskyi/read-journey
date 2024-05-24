@@ -19,10 +19,11 @@ export const RemoveBookBtn = styled.button`
 
   background-color: ${(p) => p.theme.colors.redWithAlfa(0.1)};
   border: 1px solid ${(p) => p.theme.colors.redWithAlfa(0.2)};
-  border-radius: 100%;
+  border-radius: 50%;
 `;
 
 export const TrashIcon = styled.svg`
+  flex-shrink: 0;
   width: 14px;
   height: 14px;
 
