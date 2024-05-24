@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
 
-import { addReadingSchema } from "@/config/validation/addReadingSchema";
+import {
+  finishReadingSchema,
+  startReadingSchema,
+} from "@/config/validation/addReadingSchema";
 import API from "@/services/axios";
+import { useCustomForm } from "@/hooks/useCustomForm";
+import { getLastReadPage } from "@/utils/getLastReadPage";
 
 import {
   Form,
@@ -21,6 +24,7 @@ export const AddReading = ({
   isReading,
   toggleReading,
   bookId,
+  lastReadPage,
   totalPages,
   setBook,
   setDetailsType,
@@ -30,10 +34,12 @@ export const AddReading = ({
     register,
     handleSubmit,
     formState: { errors, dirtyFields },
+    updateSchema,
     reset,
-  } = useForm({
-    mode: "onChange",
-    resolver: yupResolver(addReadingSchema(1, totalPages)),
+  } = useCustomForm({
+    schema: isReading
+      ? finishReadingSchema(lastReadPage, totalPages)
+      : startReadingSchema(lastReadPage),
   });
 
   const toggleNotify = () => {
@@ -62,6 +68,16 @@ export const AddReading = ({
 
       if (resData.progress.length === 1 && isReading) {
         setDetailsType("diary");
+      }
+
+      const lastReadPage = getLastReadPage(
+        resData.progress,
+        resData.totalPages
+      );
+      if (isReading) {
+        updateSchema(startReadingSchema(lastReadPage));
+      } else {
+        updateSchema(finishReadingSchema(lastReadPage, totalPages));
       }
 
       toggleReading();
