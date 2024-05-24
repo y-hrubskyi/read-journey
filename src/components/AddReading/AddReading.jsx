@@ -17,7 +17,13 @@ import { BookReadModal } from "@/components/BookReadModal/BookReadModal";
 
 import * as SC from "./AddReading.styled";
 
-export const AddReading = ({ isReading, toggleReading, bookId, setBook }) => {
+export const AddReading = ({
+  isReading,
+  toggleReading,
+  bookId,
+  setBook,
+  setDetailsType,
+}) => {
   const [isNotifyShown, setIsNotifyShown] = useState(false);
   const {
     register,
@@ -51,6 +57,10 @@ export const AddReading = ({ isReading, toggleReading, bookId, setBook }) => {
         toggleNotify();
       } else {
         toast.success(successMessage);
+      }
+
+      if (resData.progress.length === 1 && isReading) {
+        setDetailsType("diary");
       }
 
       toggleReading();

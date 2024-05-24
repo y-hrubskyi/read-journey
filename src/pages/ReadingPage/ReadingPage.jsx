@@ -72,6 +72,7 @@ const ReadingPage = () => {
           toggleReading={toggleReading}
           bookId={bookId}
           setBook={setBook}
+          setDetailsType={setDetailsType}
         />
         <Details
           book={book}
