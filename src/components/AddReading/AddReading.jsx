@@ -21,6 +21,7 @@ export const AddReading = ({
   isReading,
   toggleReading,
   bookId,
+  totalPages,
   setBook,
   setDetailsType,
 }) => {
@@ -32,7 +33,7 @@ export const AddReading = ({
     reset,
   } = useForm({
     mode: "onChange",
-    resolver: yupResolver(addReadingSchema),
+    resolver: yupResolver(addReadingSchema(1, totalPages)),
   });
 
   const toggleNotify = () => {

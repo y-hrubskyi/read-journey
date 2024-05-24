@@ -71,6 +71,7 @@ const ReadingPage = () => {
           isReading={isReading}
           toggleReading={toggleReading}
           bookId={bookId}
+          totalPages={book?.totalPages}
           setBook={setBook}
           setDetailsType={setDetailsType}
         />
