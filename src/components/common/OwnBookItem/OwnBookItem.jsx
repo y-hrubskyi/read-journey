@@ -42,7 +42,11 @@ export const OwnBookItem = ({ book }) => {
           <BookTitle>{book.title}</BookTitle>
           <BookAuthor>{book.author}</BookAuthor>
         </SC.AboutBook>
-        <SC.RemoveBookBtn type="button" onClick={handleRemoveBook}>
+        <SC.RemoveBookBtn
+          type="button"
+          onClick={handleRemoveBook}
+          aria-label="remove book from library"
+        >
           <SC.TrashIcon>
             <use href={Icons.trash}></use>
           </SC.TrashIcon>

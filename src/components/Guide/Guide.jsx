@@ -33,7 +33,7 @@ export const Guide = () => {
 
       <AnotherPageLinksWrapper>
         <AnotherPageLink to="/library">My library</AnotherPageLink>
-        <AnotherPageLinkBtn to="/library">
+        <AnotherPageLinkBtn to="/library" aria-label="go to my library page">
           <ArrowIcon>
             <use href={Icons.arrow}></use>
           </ArrowIcon>

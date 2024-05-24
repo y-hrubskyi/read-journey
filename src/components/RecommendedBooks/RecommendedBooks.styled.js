@@ -16,6 +16,8 @@ export const ListWrapper = styled.div`
 
 export const BookList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: ${(p) => p.theme.spacing(5)};
 `;
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import API from "@/services/axios";
+import { getLastReadPage } from "@/utils/getLastReadPage";
 
 import { AddReading } from "@/components/AddReading/AddReading";
 import { Details } from "@/components/Details/Details";
@@ -39,7 +40,7 @@ const ReadingPage = () => {
         if (isReading) setIsReading(true);
         setBook(data);
 
-        if (data.status !== "unread") {
+        if (data.status !== "unread" && data.progress[0].finishPage) {
           setDetailsType("diary");
         } else {
           setDetailsType("progress");
@@ -67,19 +68,25 @@ const ReadingPage = () => {
   return (
     <>
       <SC.Dashboard>
-        <AddReading
-          isReading={isReading}
-          toggleReading={toggleReading}
-          bookId={bookId}
-          setBook={setBook}
-          setDetailsType={setDetailsType}
-        />
-        <Details
-          book={book}
-          setBook={setBook}
-          detailsType={detailsType}
-          setDetailsType={setDetailsType}
-        />
+        {content && (
+          <>
+            <AddReading
+              isReading={isReading}
+              toggleReading={toggleReading}
+              bookId={bookId}
+              lastReadPage={getLastReadPage(book.progress, book.totalPages)}
+              totalPages={book.totalPages}
+              setBook={setBook}
+              setDetailsType={setDetailsType}
+            />
+            <Details
+              book={book}
+              setBook={setBook}
+              detailsType={detailsType}
+              setDetailsType={setDetailsType}
+            />
+          </>
+        )}
       </SC.Dashboard>
       <SC.BookReadingPageContent>
         <HeaderWrapper>
