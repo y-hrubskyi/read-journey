@@ -38,7 +38,7 @@ const SessionItem = ({
 
           return "Reading removed from progress!";
         },
-        error: (error) => error,
+        error: (error) => error.response.data.message,
       });
     } catch (error) {
       // handled in toast.promise
