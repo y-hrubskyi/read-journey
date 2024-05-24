@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import API from "@/services/axios";
 
 import { AddReading } from "@/components/AddReading/AddReading";
+import { Details } from "@/components/Details/Details";
 import {
   ContentWrapper,
   HeaderWrapper,
@@ -22,6 +23,7 @@ const ReadingPage = () => {
   const [isReading, setIsReading] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [detailsType, setDetailsType] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -35,8 +37,13 @@ const ReadingPage = () => {
         const isReading =
           progress.length && progress[progress.length - 1].status === "active";
         if (isReading) setIsReading(true);
-
         setBook(data);
+
+        if (data.status !== "unread") {
+          setDetailsType("diary");
+        } else {
+          setDetailsType("progress");
+        }
       } catch (error) {
         setError(error.message);
       } finally {
@@ -66,11 +73,17 @@ const ReadingPage = () => {
           bookId={bookId}
           setBook={setBook}
         />
+        <Details
+          book={book}
+          setBook={setBook}
+          detailsType={detailsType}
+          setDetailsType={setDetailsType}
+        />
       </SC.Dashboard>
       <SC.BookReadingPageContent>
         <HeaderWrapper>
           <PageTitle>My reading</PageTitle>
-          {hours && (
+          {book?.timeLeftToRead && (
             <SC.ReadingTime>
               {hours} hours and {minutes} minutes left
             </SC.ReadingTime>
