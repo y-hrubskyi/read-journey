@@ -14,4 +14,12 @@ export const Icons = {
   trash: new URL("@/assets/icons/sprite.svg#icon-trash", import.meta.url),
   start: new URL("@/assets/icons/sprite.svg#icon-start", import.meta.url),
   stop: new URL("@/assets/icons/sprite.svg#icon-stop", import.meta.url),
+  hourglass: new URL(
+    "@/assets/icons/sprite.svg#icon-hourglass",
+    import.meta.url
+  ),
+  pieChart: new URL(
+    "@/assets/icons/sprite.svg#icon-pie-chart",
+    import.meta.url
+  ),
 };
