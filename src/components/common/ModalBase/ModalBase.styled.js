@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -8,7 +8,7 @@ export const Backdrop = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: ${(p) => p.theme.colors.backdrop};
+  background-color: ${p => p.theme.colors.backdrop};
   overflow: auto;
 `;
 
@@ -20,10 +20,10 @@ export const BaseModal = styled.div`
 
   width: calc(100% - 40px);
   max-height: 90%;
-  padding: ${(p) => p.theme.spacing(10)};
+  padding: ${p => p.theme.spacing(10)};
 
-  background-color: ${(p) => p.theme.colors.primaryBg};
-  border-radius: ${(p) => p.theme.radii.modal};
+  background-color: ${p => p.theme.colors.primaryBg};
+  border-radius: ${p => p.theme.radii.modal};
   border: 1px solid rgba(104, 104, 104, 0.2);
   overflow: auto;
 
@@ -47,7 +47,7 @@ export const BaseModal = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    padding: ${(p) => p.theme.spacing(12.5)};
+    padding: ${p => p.theme.spacing(12.5)};
   }
 `;
 
@@ -79,7 +79,7 @@ export const CloseBtn = styled.button`
   height: 22px;
   padding: 0;
 
-  color: ${(p) => p.theme.colors.primaryText};
+  color: ${p => p.theme.colors.primaryText};
 
   background-color: transparent;
   border: none;

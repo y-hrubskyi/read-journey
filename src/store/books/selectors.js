@@ -1,1 +1,1 @@
-export const selectOwnLibrary = (state) => state.books.library;
+export const selectOwnLibrary = state => state.books.library;

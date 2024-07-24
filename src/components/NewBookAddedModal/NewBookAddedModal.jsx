@@ -1,13 +1,13 @@
-import { ModalTypes } from "@/config/modals";
+import { ModalTypes } from '@/config/modals';
 
-import { ModalBase } from "@/components/common/ModalBase/ModalBase";
+import { ModalBase } from '@/components/common/ModalBase/ModalBase';
 import {
   AccentText,
   NotificationDescription,
-  NotificationTitle,
-} from "@/components/common/NotificationModal/NotificationModal.styled";
+  NotificationTitle
+} from '@/components/common/NotificationModal/NotificationModal.styled';
 
-import * as SC from "./NewBookAddedModal.styled";
+import * as SC from './NewBookAddedModal.styled';
 
 export const NewBookAddedModal = ({ isOpen, onClose }) => {
   return (

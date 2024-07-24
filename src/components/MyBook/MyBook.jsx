@@ -1,6 +1,6 @@
-import { Icons } from "@/config/icons";
+import { Icons } from '@/config/icons';
 
-import * as SC from "./MyBook.styled";
+import * as SC from './MyBook.styled';
 
 export const MyBook = ({ book, isReading }) => {
   return (
@@ -11,7 +11,7 @@ export const MyBook = ({ book, isReading }) => {
         <SC.BookAuthor>{book.author}</SC.BookAuthor>
       </SC.AboutBook>
       <SC.ActionIcon>
-        <use href={Icons[isReading ? "stop" : "start"]}></use>
+        <use href={Icons[isReading ? 'stop' : 'start']}></use>
       </SC.ActionIcon>
     </SC.Content>
   );

@@ -1,6 +1,6 @@
-import { Icons } from "@/config/icons";
+import { Icons } from '@/config/icons';
 
-import * as SC from "./Paginator.styled";
+import * as SC from './Paginator.styled';
 
 export const Paginator = ({ page, totalPages, setPage, noContent }) => {
   const prevBtnDisabled = page === 1 || noContent;

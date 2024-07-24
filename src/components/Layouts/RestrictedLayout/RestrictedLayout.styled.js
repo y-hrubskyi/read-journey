@@ -1,47 +1,47 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import PreviewIMG from "@/assets/img/preview.webp";
+import PreviewIMG from '@/assets/img/preview.webp';
 
-import { BaseContainer } from "@/components/common/Layout/Layout.styled";
+import { BaseContainer } from '@/components/common/Layout/Layout.styled';
 
 export const Container = styled(BaseContainer)`
   display: flex;
   flex-direction: column;
-  gap: ${(p) => p.theme.spacing(2.5)};
+  gap: ${p => p.theme.spacing(2.5)};
 
   @media screen and (min-width: 1280px) {
     flex-direction: row;
-    gap: ${(p) => p.theme.spacing(4)};
+    gap: ${p => p.theme.spacing(4)};
   }
 `;
 
 export const ContentWrapper = styled.div`
-  padding-top: ${(p) => p.theme.spacing(5)};
-  padding-right: ${(p) => p.theme.spacing(5)};
-  padding-bottom: ${(p) => p.theme.spacing(10)};
-  padding-left: ${(p) => p.theme.spacing(5)};
+  padding-top: ${p => p.theme.spacing(5)};
+  padding-right: ${p => p.theme.spacing(5)};
+  padding-bottom: ${p => p.theme.spacing(10)};
+  padding-left: ${p => p.theme.spacing(5)};
 
-  background-color: ${(p) => p.theme.colors.primaryBg};
-  border-radius: ${(p) => p.theme.radii.wrapper};
+  background-color: ${p => p.theme.colors.primaryBg};
+  border-radius: ${p => p.theme.radii.wrapper};
 
   @media screen and (min-width: 768px) {
-    padding-top: ${(p) => p.theme.spacing(10)};
-    padding-right: ${(p) => p.theme.spacing(42)};
-    padding-bottom: ${(p) => p.theme.spacing(53.5)};
-    padding-left: ${(p) => p.theme.spacing(16)};
+    padding-top: ${p => p.theme.spacing(10)};
+    padding-right: ${p => p.theme.spacing(42)};
+    padding-bottom: ${p => p.theme.spacing(53.5)};
+    padding-left: ${p => p.theme.spacing(16)};
   }
 
   @media screen and (min-width: 1280px) {
     flex: 1;
-    padding: ${(p) => p.theme.spacing(10)} ${(p) => p.theme.spacing(16)};
+    padding: ${p => p.theme.spacing(10)} ${p => p.theme.spacing(16)};
   }
 `;
 
 export const FormWrapper = styled(ContentWrapper)``;
 
 export const SloganHeading = styled.p`
-  margin-top: ${(p) => p.theme.spacing(10)};
-  margin-bottom: ${(p) => p.theme.spacing(5)};
+  margin-top: ${p => p.theme.spacing(10)};
+  margin-bottom: ${p => p.theme.spacing(5)};
 
   font-weight: 700;
   font-size: 32px;
@@ -49,8 +49,8 @@ export const SloganHeading = styled.p`
   letter-spacing: 0.02em;
 
   @media screen and (min-width: 768px) {
-    margin-top: ${(p) => p.theme.spacing(39)};
-    margin-bottom: ${(p) => p.theme.spacing(10)};
+    margin-top: ${p => p.theme.spacing(39)};
+    margin-bottom: ${p => p.theme.spacing(10)};
     max-width: 444px;
 
     font-size: 64px;
@@ -58,7 +58,7 @@ export const SloganHeading = styled.p`
   }
 
   @media screen and (min-width: 1280px) {
-    margin-top: ${(p) => p.theme.spacing(27)};
+    margin-top: ${p => p.theme.spacing(27)};
   }
 `;
 

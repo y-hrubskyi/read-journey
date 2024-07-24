@@ -1,12 +1,12 @@
-import { Progress } from "./Progress/Progress";
-import { Diary } from "./Diary/Diary";
-import { Statistics } from "./Statistics/Statistics";
+import { Progress } from './Progress/Progress';
+import { Diary } from './Diary/Diary';
+import { Statistics } from './Statistics/Statistics';
 
 export const Details = ({ book, setBook, detailsType, setDetailsType }) => {
   switch (detailsType) {
-    case "progress":
+    case 'progress':
       return <Progress />;
-    case "diary":
+    case 'diary':
       return (
         <Diary
           book={book}
@@ -15,7 +15,7 @@ export const Details = ({ book, setBook, detailsType, setDetailsType }) => {
           setDetailsType={setDetailsType}
         />
       );
-    case "statistics":
+    case 'statistics':
       return (
         <Statistics
           book={book}

@@ -1,5 +1,5 @@
-import { Toaster as HotToaster } from "react-hot-toast";
-import { useTheme } from "styled-components";
+import { Toaster as HotToaster } from 'react-hot-toast';
+import { useTheme } from 'styled-components';
 
 export const Toaster = () => {
   const theme = useTheme();
@@ -8,12 +8,12 @@ export const Toaster = () => {
     <HotToaster
       toastOptions={{
         style: {
-          fontWeight: "bold",
-          textAlign: "center",
+          fontWeight: 'bold',
+          textAlign: 'center',
           color: theme.colors.primaryText,
           backgroundColor: theme.colors.secondaryBg,
-          border: `1px solid ${theme.colors.btnBorder}`,
-        },
+          border: `1px solid ${theme.colors.btnBorder}`
+        }
       }}
     />
   );

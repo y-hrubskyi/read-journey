@@ -1,12 +1,12 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import API, { clearAuthHeader, setAuthHeader } from "@/services/axios";
+import API, { clearAuthHeader, setAuthHeader } from '@/services/axios';
 
 export const signUp = createAsyncThunk(
-  "auth/signup",
+  'auth/signup',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await API.post("/users/signup", credentials);
+      const { data } = await API.post('/users/signup', credentials);
       setAuthHeader(data.token);
       return data;
     } catch (error) {
@@ -16,10 +16,10 @@ export const signUp = createAsyncThunk(
 );
 
 export const signIn = createAsyncThunk(
-  "auth/signin",
+  'auth/signin',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await API.post("/users/signin", credentials);
+      const { data } = await API.post('/users/signin', credentials);
       setAuthHeader(data.token);
       return data;
     } catch (error) {
@@ -29,10 +29,10 @@ export const signIn = createAsyncThunk(
 );
 
 export const signOut = createAsyncThunk(
-  "auth/signout",
+  'auth/signout',
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await API.post("/users/signout");
+      const { data } = await API.post('/users/signout');
       clearAuthHeader();
       return data;
     } catch (error) {
@@ -42,16 +42,16 @@ export const signOut = createAsyncThunk(
 );
 
 export const refreshUser = createAsyncThunk(
-  "auth/current",
+  'auth/current',
   async (_, { getState, rejectWithValue }) => {
     try {
       const persistedAccessToken = getState().auth.accessToken;
       if (persistedAccessToken === null) {
-        return rejectWithValue("Unable to fetch user");
+        return rejectWithValue('Unable to fetch user');
       }
 
       setAuthHeader(persistedAccessToken);
-      const { data } = await API.get("/users/current");
+      const { data } = await API.get('/users/current');
 
       setAuthHeader(data.token);
       return data;

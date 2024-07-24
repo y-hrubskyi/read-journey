@@ -1,10 +1,10 @@
-import { getLastReadPage } from "@/utils/getLastReadPage";
-import { calcProgress } from "@/utils/calcProgress";
+import { getLastReadPage } from '@/utils/getLastReadPage';
+import { calcProgress } from '@/utils/calcProgress';
 
-import { DetailsTitle, InfoBlock, InfoBlockHeader } from "../Details.styled";
-import { DetailsNav } from "../DetailsNav/DetailsNav";
+import { DetailsTitle, InfoBlock, InfoBlockHeader } from '../Details.styled';
+import { DetailsNav } from '../DetailsNav/DetailsNav';
 
-import * as SC from "./Statistics.styled";
+import * as SC from './Statistics.styled';
 
 export const Statistics = ({ book, detailsType, setDetailsType }) => {
   const { totalPages, progress } = book;
@@ -32,7 +32,7 @@ export const Statistics = ({ book, detailsType, setDetailsType }) => {
           <div>
             <SC.LabelValue>{readingProgress}%</SC.LabelValue>
             <SC.LabelProgress>
-              {readPages} {readPages === 1 ? "page" : "pages"} read
+              {readPages} {readPages === 1 ? 'page' : 'pages'} read
             </SC.LabelProgress>
           </div>
         </SC.Label>

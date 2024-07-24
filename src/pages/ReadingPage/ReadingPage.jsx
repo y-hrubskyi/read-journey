@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-import API from "@/services/axios";
-import { getLastReadPage } from "@/utils/getLastReadPage";
+import API from '@/services/axios';
+import { getLastReadPage } from '@/utils/getLastReadPage';
 
-import { AddReading } from "@/components/AddReading/AddReading";
-import { Details } from "@/components/Details/Details";
+import { AddReading } from '@/components/AddReading/AddReading';
+import { Details } from '@/components/Details/Details';
 import {
   ContentWrapper,
   HeaderWrapper,
-  PageTitle,
-} from "@/components/common/PageContent/PageContent.styled";
-import { MyBook } from "@/components/MyBook/MyBook";
-import { Loader } from "@/components/common/Loader/Loader";
-import { Placeholder } from "@/components/common/Placeholder/Placeholder";
-import { DarkenedText } from "@/components/common/Placeholder/Placeholder.styled";
+  PageTitle
+} from '@/components/common/PageContent/PageContent.styled';
+import { MyBook } from '@/components/MyBook/MyBook';
+import { Loader } from '@/components/common/Loader/Loader';
+import { Placeholder } from '@/components/common/Placeholder/Placeholder';
+import { DarkenedText } from '@/components/common/Placeholder/Placeholder.styled';
 
-import * as SC from "./ReadingPage.styled";
+import * as SC from './ReadingPage.styled';
 
 const ReadingPage = () => {
   const { bookId } = useParams();
@@ -24,7 +24,7 @@ const ReadingPage = () => {
   const [isReading, setIsReading] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [detailsType, setDetailsType] = useState("");
+  const [detailsType, setDetailsType] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -36,14 +36,14 @@ const ReadingPage = () => {
 
         const { progress } = data;
         const isReading =
-          progress.length && progress[progress.length - 1].status === "active";
+          progress.length && progress[progress.length - 1].status === 'active';
         if (isReading) setIsReading(true);
         setBook(data);
 
-        if (data.status !== "unread" && data.progress[0].finishPage) {
-          setDetailsType("diary");
+        if (data.status !== 'unread' && data.progress[0].finishPage) {
+          setDetailsType('diary');
         } else {
-          setDetailsType("progress");
+          setDetailsType('progress');
         }
       } catch (error) {
         setError(error.message);
@@ -54,7 +54,7 @@ const ReadingPage = () => {
   }, [bookId]);
 
   const toggleReading = () => {
-    setIsReading((prevState) => !prevState);
+    setIsReading(prevState => !prevState);
   };
 
   const loading = !error && isLoading;

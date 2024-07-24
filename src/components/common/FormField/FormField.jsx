@@ -1,6 +1,6 @@
-import { Icons } from "@/config/icons";
+import { Icons } from '@/config/icons';
 
-import * as SC from "./FormField.styled";
+import * as SC from './FormField.styled';
 
 export const FormField = ({
   id,
@@ -9,7 +9,7 @@ export const FormField = ({
   correctMessage,
   hasError,
   errorMessage,
-  children,
+  children
 }) => {
   return (
     <SC.FieldWrapper>

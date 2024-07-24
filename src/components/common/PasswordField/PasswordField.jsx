@@ -1,4 +1,4 @@
-import { Icons } from "@/config/icons";
+import { Icons } from '@/config/icons';
 
 import {
   FieldWrapper,
@@ -6,9 +6,9 @@ import {
   CorrectIcon,
   CorrectMessage,
   ErrorIcon,
-  ErrorMessage,
-} from "@/components/common/FormField/FormField.styled";
-import * as SC from "./PasswordField.styled";
+  ErrorMessage
+} from '@/components/common/FormField/FormField.styled';
+import * as SC from './PasswordField.styled';
 
 export const PasswordField = ({
   id,
@@ -19,7 +19,7 @@ export const PasswordField = ({
   errorMessage,
   passwordShown,
   onTogglePasswordShown,
-  children,
+  children
 }) => {
   return (
     <FieldWrapper>
@@ -28,7 +28,7 @@ export const PasswordField = ({
       <SC.EyeBtn
         type="button"
         onClick={onTogglePasswordShown}
-        aria-label={`${passwordShown ? "hide" : "show"} password`}
+        aria-label={`${passwordShown ? 'hide' : 'show'} password`}
         data-was-valid={isCorrect || hasError}
       >
         <SC.EyeIcon>

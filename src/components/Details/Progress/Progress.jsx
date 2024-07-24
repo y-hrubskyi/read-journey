@@ -1,4 +1,4 @@
-import * as SC from "./Progress.styled";
+import * as SC from './Progress.styled';
 
 export const Progress = () => {
   return (

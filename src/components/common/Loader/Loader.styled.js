@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const LoaderWrapper = styled.div`
   position: absolute;
@@ -15,7 +15,7 @@ export const Loader = styled.div`
   --b: 8px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: ${(p) => p.theme.colors.accent};
+  background: ${p => p.theme.colors.accent};
   mask: repeating-conic-gradient(#0000 0deg, #000 1deg 70deg, #0000 71deg 90deg),
     radial-gradient(
       farthest-side,

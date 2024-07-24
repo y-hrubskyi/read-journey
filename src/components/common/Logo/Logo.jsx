@@ -1,6 +1,6 @@
-import { Icons } from "@/config/icons";
+import { Icons } from '@/config/icons';
 
-import * as SC from "./Logo.styled";
+import * as SC from './Logo.styled';
 
 export const Logo = ({ isPrivateLayout }) => {
   return (

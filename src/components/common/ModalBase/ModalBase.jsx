@@ -1,11 +1,11 @@
-import Modal from "react-modal";
+import Modal from 'react-modal';
 
-import { ModalTypes } from "@/config/modals";
-import { Icons } from "@/config/icons";
+import { ModalTypes } from '@/config/modals';
+import { Icons } from '@/config/icons';
 
-import * as SC from "./ModalBase.styled";
+import * as SC from './ModalBase.styled';
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
 const Modals = {
   [ModalTypes.CONTENT]: (props, children) => (
@@ -13,7 +13,7 @@ const Modals = {
   ),
   [ModalTypes.NOTIFICATION]: (props, children) => (
     <SC.NotificationModal {...props}>{children}</SC.NotificationModal>
-  ),
+  )
 };
 
 export const ModalBase = ({ isOpen, onClose, type, children }) => {
@@ -21,8 +21,8 @@ export const ModalBase = ({ isOpen, onClose, type, children }) => {
     <Modal
       isOpen={isOpen}
       onRequestClose={onClose}
-      onAfterOpen={() => (document.body.style.overflow = "hidden")}
-      onAfterClose={() => (document.body.style.overflow = "unset")}
+      onAfterOpen={() => (document.body.style.overflow = 'hidden')}
+      onAfterClose={() => (document.body.style.overflow = 'unset')}
       className="_"
       overlayClassName="_"
       contentElement={Modals[type]}

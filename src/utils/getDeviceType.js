@@ -1,5 +1,5 @@
-import { DeviceTypes } from "@/config/deviceTypes";
-import { Breakpoints } from "@/config/breakpoints";
+import { DeviceTypes } from '@/config/deviceTypes';
+import { Breakpoints } from '@/config/breakpoints';
 
 export const getDeviceType = () => {
   if (window.innerWidth >= Breakpoints.DESKTOP) {

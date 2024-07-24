@@ -1,25 +1,25 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { InfoTitle } from "@/components/common/Dashboard/InfoBlock.styled";
+import { InfoTitle } from '@/components/common/Dashboard/InfoBlock.styled';
 
 export const GuideTitle = styled(InfoTitle)`
-  margin-bottom: ${(p) => p.theme.spacing(5)};
+  margin-bottom: ${p => p.theme.spacing(5)};
 
   @media screen and (min-width: 768px) {
-    margin-bottom: ${(p) => p.theme.spacing(10)};
+    margin-bottom: ${p => p.theme.spacing(10)};
   }
 `;
 
 export const Points = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${(p) => p.theme.spacing(5)};
-  margin-bottom: ${(p) => p.theme.spacing(5)};
+  gap: ${p => p.theme.spacing(5)};
+  margin-bottom: ${p => p.theme.spacing(5)};
 `;
 
 export const Point = styled.div`
   display: flex;
-  gap: ${(p) => p.theme.spacing(3)};
+  gap: ${p => p.theme.spacing(3)};
 `;
 
 export const Number = styled.div`
@@ -35,10 +35,10 @@ export const Number = styled.div`
   line-height: 1;
   letter-spacing: -0.02em;
   text-align: center;
-  color: ${(p) => p.theme.colors.primaryBg};
+  color: ${p => p.theme.colors.primaryBg};
 
   border-radius: 50%;
-  background-color: ${(p) => p.theme.colors.primaryText};
+  background-color: ${p => p.theme.colors.primaryText};
 
   @media screen and (min-width: 768px) {
     width: 44px;
@@ -53,7 +53,7 @@ export const Description = styled.p`
   font-size: 14px;
   line-height: 1.28571;
   letter-spacing: -0.02em;
-  color: ${(p) => p.theme.colors.secondaryText};
+  color: ${p => p.theme.colors.secondaryText};
 
   @media screen and (min-width: 768px) {
     max-width: 197px;
@@ -61,5 +61,5 @@ export const Description = styled.p`
 `;
 
 export const AccentText = styled.span`
-  color: ${(p) => p.theme.colors.primaryText};
+  color: ${p => p.theme.colors.primaryText};
 `;

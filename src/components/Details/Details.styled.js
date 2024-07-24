@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { InfoTitle } from "@/components/common/Dashboard/InfoBlock.styled";
+import { InfoTitle } from '@/components/common/Dashboard/InfoBlock.styled';
 
 export const DetailsTitle = styled(InfoTitle)``;
 
@@ -11,13 +11,13 @@ export const InfoBlock = styled.div`
 export const InfoBlockHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: ${(p) => p.theme.spacing(5)};
+  margin-bottom: ${p => p.theme.spacing(5)};
 
   @media screen and (min-width: 768px) {
-    margin-bottom: ${(p) => p.theme.spacing(4)};
+    margin-bottom: ${p => p.theme.spacing(4)};
   }
 
   @media screen and (min-width: 1280px) {
-    margin-bottom: ${(p) => p.theme.spacing(5)};
+    margin-bottom: ${p => p.theme.spacing(5)};
   }
 `;

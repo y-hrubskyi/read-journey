@@ -1,8 +1,8 @@
-import { createGlobalStyle } from "styled-components";
-import "modern-normalize";
+import { createGlobalStyle } from 'styled-components';
+import 'modern-normalize';
 
-import GilroyMediumWOFF2 from "@/assets/fonts/Gilroy-Medium.woff2";
-import GilroyBoldWOFF2 from "@/assets/fonts/Gilroy-Bold.woff2";
+import GilroyMediumWOFF2 from '@/assets/fonts/Gilroy-Medium.woff2';
+import GilroyBoldWOFF2 from '@/assets/fonts/Gilroy-Bold.woff2';
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -23,11 +23,11 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Gilroy', sans-serif;
-    color: ${(p) => p.theme.colors.primaryText};
+    color: ${p => p.theme.colors.primaryText};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     
-    background-color: ${(p) => p.theme.colors.pageBg};
+    background-color: ${p => p.theme.colors.pageBg};
   }
   
   h1,

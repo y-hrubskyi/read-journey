@@ -1,23 +1,23 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import toast from "react-hot-toast";
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import toast from 'react-hot-toast';
 
-import { signUpSchema } from "@/config/validation/signUpSchema";
-import { selectAuthIsLoading } from "@/store/auth/selectors";
-import { signUp } from "@/store/auth/operations";
+import { signUpSchema } from '@/config/validation/signUpSchema';
+import { selectAuthIsLoading } from '@/store/auth/selectors';
+import { signUp } from '@/store/auth/operations';
 
-import { FormField } from "@/components/common/FormField/FormField";
-import { PasswordField } from "@/components/common/PasswordField/PasswordField";
+import { FormField } from '@/components/common/FormField/FormField';
+import { PasswordField } from '@/components/common/PasswordField/PasswordField';
 import {
   NameInput,
   EmailInput,
   PasswordInput,
   AuthSubmitBtn,
-  AuthPageLink,
-} from "@/components/common/AuthForm/AuthForm.styled";
-import * as SC from "./RegisterForm.styled";
+  AuthPageLink
+} from '@/components/common/AuthForm/AuthForm.styled';
+import * as SC from './RegisterForm.styled';
 
 export const RegisterForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -26,23 +26,23 @@ export const RegisterForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, dirtyFields },
+    formState: { errors, dirtyFields }
   } = useForm({
-    mode: "onChange",
-    resolver: yupResolver(signUpSchema),
+    mode: 'onChange',
+    resolver: yupResolver(signUpSchema)
   });
 
   const togglePasswordShown = () => {
-    setPasswordShown((prevState) => !prevState);
+    setPasswordShown(prevState => !prevState);
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     try {
       const signUpPromise = dispatch(signUp(data)).unwrap();
       await toast.promise(signUpPromise, {
-        loading: "Registering...",
-        success: "Registration successful!",
-        error: (error) => error,
+        loading: 'Registering...',
+        success: 'Registration successful!',
+        error: error => error
       });
     } catch (error) {
       // handled in toast.promise
@@ -69,7 +69,7 @@ export const RegisterForm = () => {
         >
           <NameInput
             id="name"
-            {...register("name")}
+            {...register('name')}
             type="text"
             data-is-correct={isCorrectName}
             data-has-error={hasErrorName}
@@ -85,7 +85,7 @@ export const RegisterForm = () => {
         >
           <EmailInput
             id="email"
-            {...register("email")}
+            {...register('email')}
             type="email"
             data-is-correct={isCorrectEmail}
             data-has-error={hasErrorEmail}
@@ -103,8 +103,8 @@ export const RegisterForm = () => {
         >
           <PasswordInput
             id="password"
-            {...register("password")}
-            type={passwordShown ? "text" : "password"}
+            {...register('password')}
+            type={passwordShown ? 'text' : 'password'}
             data-is-correct={isCorrectPassword}
             data-has-error={hasErrorPassword}
           />

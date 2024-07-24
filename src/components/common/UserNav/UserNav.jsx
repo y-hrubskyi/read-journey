@@ -1,4 +1,4 @@
-import * as SC from "./UserNav.styled";
+import * as SC from './UserNav.styled';
 
 export const UserNav = ({ onCloseMobileMenu }) => {
   return (

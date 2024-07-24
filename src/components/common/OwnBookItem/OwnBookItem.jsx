@@ -1,19 +1,19 @@
-import { useDispatch } from "react-redux";
-import toast from "react-hot-toast";
+import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 
-import { Icons } from "@/config/icons";
-import { useModal } from "@/hooks/useModal";
-import { removeFromLibraryById } from "@/store/books/operations";
+import { Icons } from '@/config/icons';
+import { useModal } from '@/hooks/useModal';
+import { removeFromLibraryById } from '@/store/books/operations';
 
 import {
   BookCard,
   BookImg,
   BookTitle,
-  BookAuthor,
-} from "@/components/common/BookItem/BookItem.styled";
-import { BookModal } from "@/components/common/BookModal/BookModal";
+  BookAuthor
+} from '@/components/common/BookItem/BookItem.styled';
+import { BookModal } from '@/components/common/BookModal/BookModal';
 
-import * as SC from "./OwnBookItem.styled";
+import * as SC from './OwnBookItem.styled';
 
 export const OwnBookItem = ({ book }) => {
   const { isModalOpen, toggleModal } = useModal();
@@ -25,9 +25,9 @@ export const OwnBookItem = ({ book }) => {
         removeFromLibraryById(book._id)
       ).unwrap();
       await toast.promise(removingBookPromise, {
-        loading: "Removing...",
-        success: "Removed from library!",
-        error: (error) => error,
+        loading: 'Removing...',
+        success: 'Removed from library!',
+        error: error => error
       });
     } catch (error) {
       // handled in toast.promise
