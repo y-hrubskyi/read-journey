@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { BooksLimit } from "@/config/pagination/limits";
-import { getDeviceType } from "@/utils/getDeviceType";
+import { BooksLimit } from '@/config/pagination/limits';
+import { getDeviceType } from '@/utils/getDeviceType';
 
 export const usePagination = () => {
   const [page, setPage] = useState(1);

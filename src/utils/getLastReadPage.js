@@ -1,7 +1,7 @@
 export const getLastReadPage = (sessions, totalPages) => {
   if (
     sessions.length === 0 ||
-    (sessions.length === 1 && sessions[0].status === "active")
+    (sessions.length === 1 && sessions[0].status === 'active')
   ) {
     return 1;
   }

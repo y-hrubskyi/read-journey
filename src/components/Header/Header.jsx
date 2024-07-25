@@ -1,16 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import toast from "react-hot-toast";
+import { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 
-import { Icons } from "@/config/icons";
-import { selectAuthIsLoading } from "@/store/auth/selectors";
-import { signOut } from "@/store/auth/operations";
-import { clearLibrary } from "@/store/books/slice";
+import { Icons } from '@/config/icons';
+import { selectAuthIsLoading } from '@/store/auth/selectors';
+import { signOut } from '@/store/auth/operations';
+import { clearLibrary } from '@/store/books/slice';
 
-import { Logo } from "@/components/common/Logo/Logo";
-import { UserNav } from "@/components/common/UserNav/UserNav";
-import { UserBar } from "@/components/common/UserBar/UserBar";
-import * as SC from "./Header.styled";
+import { Logo } from '@/components/common/Logo/Logo';
+import { UserNav } from '@/components/common/UserNav/UserNav';
+import { UserBar } from '@/components/common/UserBar/UserBar';
+import * as SC from './Header.styled';
 
 export const Header = () => {
   const [isMobileDevice, setIsMobileDevice] = useState(
@@ -30,30 +30,30 @@ export const Header = () => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
+    window.addEventListener('resize', handleWindowResize);
 
     return () => {
-      window.removeEventListener("resize", handleWindowResize);
+      window.removeEventListener('resize', handleWindowResize);
     };
   }, [handleWindowResize]);
 
   useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
 
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [isMobileMenuOpen]);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prevState) => !prevState);
+    setIsMobileMenuOpen(prevState => !prevState);
   };
 
   const closeMobileMenu = () => {
     if (isMobileMenuOpen) setIsMobileMenuOpen(false);
   };
 
-  const handleBackdropClick = (e) => {
+  const handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
       setIsMobileMenuOpen(false);
     }
@@ -63,9 +63,9 @@ export const Header = () => {
     try {
       const signOutPromise = dispatch(signOut()).unwrap();
       await toast.promise(signOutPromise, {
-        loading: "Logging out...",
-        success: "Logout successful!",
-        error: (error) => error,
+        loading: 'Logging out...',
+        success: 'Logout successful!',
+        error: error => error
       });
     } catch (error) {
       // handled in toast.promise

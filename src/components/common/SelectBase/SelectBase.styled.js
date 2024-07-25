@@ -1,6 +1,6 @@
-import { theme } from "@/styles/theme";
+import { theme } from '@/styles/theme';
 
-const minTablet = "@media only screen and (min-width: 768px)";
+const minTablet = '@media only screen and (min-width: 768px)';
 
 export const selectStyles = {
   control: (baseStyles, state) => ({
@@ -8,22 +8,22 @@ export const selectStyles = {
     width: 120,
     padding: `${theme.spacing(2.75)} ${theme.spacing(3.25)}`,
     borderRadius: theme.radii.field,
-    border: "1px solid #3e3e3e",
-    cursor: "pointer",
-    boxShadow: "none",
-    backgroundColor: "transparent",
-    "&:hover": {
-      borderColor: "#3e3e3e",
+    border: '1px solid #3e3e3e',
+    cursor: 'pointer',
+    boxShadow: 'none',
+    backgroundColor: 'transparent',
+    '&:hover': {
+      borderColor: '#3e3e3e'
     },
-    "& .css-tj5bde-Svg": {
-      transform: state.menuIsOpen && "rotate(180deg)",
+    '& .css-tj5bde-Svg': {
+      transform: state.menuIsOpen && 'rotate(180deg)'
     },
     [minTablet]: {
       width: 153,
-      padding: `${theme.spacing(3.25)}`,
-    },
+      padding: `${theme.spacing(3.25)}`
+    }
   }),
-  valueContainer: (baseStyles) => ({
+  valueContainer: baseStyles => ({
     ...baseStyles,
     padding: 0,
     fontSize: 12,
@@ -32,40 +32,40 @@ export const selectStyles = {
     color: theme.colors.primaryText,
     [minTablet]: {
       fontSize: 14,
-      lineHeight: 1.28571,
-    },
+      lineHeight: 1.28571
+    }
   }),
-  singleValue: (baseStyles) => ({
+  singleValue: baseStyles => ({
     ...baseStyles,
     marginLeft: 0,
     marginRight: 0,
-    color: "inherit",
+    color: 'inherit'
   }),
-  input: (baseStyles) => ({
+  input: baseStyles => ({
     ...baseStyles,
     margin: 0,
     paddingTop: 0,
-    paddingBottom: 0,
+    paddingBottom: 0
   }),
   indicatorSeparator: () => ({
-    display: "none",
+    display: 'none'
   }),
-  dropdownIndicator: (baseStyles) => ({
+  dropdownIndicator: baseStyles => ({
     ...baseStyles,
     padding: 0,
     height: 16,
     width: 16,
     color: theme.colors.primaryText,
-    "&:hover": {
-      color: theme.colors.primaryText,
+    '&:hover': {
+      color: theme.colors.primaryText
     },
-    "& .css-tj5bde-Svg": {
-      width: "100%",
-      height: "100%",
-      transition: theme.transition("transform"),
-    },
+    '& .css-tj5bde-Svg': {
+      width: '100%',
+      height: '100%',
+      transition: theme.transition('transform')
+    }
   }),
-  menu: (baseStyles) => ({
+  menu: baseStyles => ({
     ...baseStyles,
     marginTop: theme.spacing(1),
     marginBottom: 0,
@@ -75,22 +75,22 @@ export const selectStyles = {
     zIndex: 10,
     backgroundColor: theme.colors.secondaryBg,
     borderRadius: theme.radii.field,
-    boxShadow: "none",
-    border: "none",
+    boxShadow: 'none',
+    border: 'none'
   }),
-  menuList: (baseStyles) => ({
+  menuList: baseStyles => ({
     ...baseStyles,
-    height: "100%",
-    "&::-webkit-scrollbar": {
-      width: 6,
+    height: '100%',
+    '&::-webkit-scrollbar': {
+      width: 6
     },
-    "&::-webkit-scrollbar-track": {
-      background: "transparent",
+    '&::-webkit-scrollbar-track': {
+      background: 'transparent'
     },
-    "&::-webkit-scrollbar-thumb": {
+    '&::-webkit-scrollbar-thumb': {
       borderRadius: 10,
-      background: "#3e3e3e",
-    },
+      background: '#3e3e3e'
+    }
   }),
   option: (baseStyles, state) => ({
     ...baseStyles,
@@ -101,20 +101,20 @@ export const selectStyles = {
     fontSize: 12,
     fontWeight: 500,
     lineHeight: 1.3333,
-    letterSpacing: "-0.02em",
-    color: theme.colors[state.isSelected ? "primaryText" : "secondaryText"],
-    cursor: "pointer",
-    backgroundColor: "transparent",
-    transition: theme.transition("color"),
-    "&:hover": {
-      color: theme.colors.primaryText,
+    letterSpacing: '-0.02em',
+    color: theme.colors[state.isSelected ? 'primaryText' : 'secondaryText'],
+    cursor: 'pointer',
+    backgroundColor: 'transparent',
+    transition: theme.transition('color'),
+    '&:hover': {
+      color: theme.colors.primaryText
     },
-    "&:active": {
-      backgroundColor: "transparent",
+    '&:active': {
+      backgroundColor: 'transparent'
     },
     [minTablet]: {
       fontSize: 14,
-      lineHeight: 1.28571,
-    },
-  }),
+      lineHeight: 1.28571
+    }
+  })
 };

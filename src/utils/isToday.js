@@ -1,5 +1,5 @@
-export const isToday = (dateString) => {
-  const [day, month, year] = dateString.split(".").map(Number);
+export const isToday = dateString => {
+  const [day, month, year] = dateString.split('.').map(Number);
 
   const today = new Date();
 

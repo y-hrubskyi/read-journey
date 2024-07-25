@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { selectAuthUser } from "@/store/auth/selectors";
+import { selectAuthUser } from '@/store/auth/selectors';
 
-import * as SC from "./UserBar.styled";
+import * as SC from './UserBar.styled';
 
 export const UserBar = () => {
   const user = useSelector(selectAuthUser);

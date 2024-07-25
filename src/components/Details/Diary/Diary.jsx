@@ -1,44 +1,44 @@
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
-import { Icons } from "@/config/icons";
-import API from "@/services/axios";
-import { sortByDate } from "@/utils/sortByDate";
-import { getLastReadPage } from "@/utils/getLastReadPage";
-import { calcProgress } from "@/utils/calcProgress";
-import { calcTime } from "@/utils/calcTime";
-import { isToday } from "@/utils/isToday";
+import { Icons } from '@/config/icons';
+import API from '@/services/axios';
+import { sortByDate } from '@/utils/sortByDate';
+import { getLastReadPage } from '@/utils/getLastReadPage';
+import { calcProgress } from '@/utils/calcProgress';
+import { calcTime } from '@/utils/calcTime';
+import { isToday } from '@/utils/isToday';
 
-import { DetailsTitle, InfoBlock, InfoBlockHeader } from "../Details.styled";
-import { DetailsNav } from "../DetailsNav/DetailsNav";
+import { DetailsTitle, InfoBlock, InfoBlockHeader } from '../Details.styled';
+import { DetailsNav } from '../DetailsNav/DetailsNav';
 
-import * as SC from "./Diary.styled";
+import * as SC from './Diary.styled';
 
 const SessionItem = ({
   session,
   totalPages,
   bookId,
   setBook,
-  setDetailsType,
+  setDetailsType
 }) => {
   const handleRemoveReading = async () => {
     try {
       const searchParams = new URLSearchParams({
         bookId,
-        readingId: session._id,
+        readingId: session._id
       });
 
       const removingReadingPromise = API.delete(
         `/books/reading?${searchParams}`
       );
       await toast.promise(removingReadingPromise, {
-        loading: "Removing...",
+        loading: 'Removing...',
         success: ({ data }) => {
-          if (!data.progress.length) setDetailsType("progress");
+          if (!data.progress.length) setDetailsType('progress');
           setBook(data);
 
-          return "Reading removed from progress!";
+          return 'Reading removed from progress!';
         },
-        error: (error) => error.response.data.message,
+        error: error => error.response.data.message
       });
     } catch (error) {
       // handled in toast.promise
@@ -60,7 +60,7 @@ const SessionItem = ({
       <SC.LeftBlock>
         <SC.ReadingProgress>{readingProgress}%</SC.ReadingProgress>
         <SC.ReadingInfo>
-          {readingTime} {readingTime === 1 ? "minute" : "minutes"}
+          {readingTime} {readingTime === 1 ? 'minute' : 'minutes'}
         </SC.ReadingInfo>
       </SC.LeftBlock>
       <SC.RightBlock>
@@ -69,7 +69,7 @@ const SessionItem = ({
             <use href={Icons.chart}></use>
           </SC.ChartIcon>
           <SC.ReadingSpeed>
-            {speed} {speed === 1 ? "page" : "pages"} per hour
+            {speed} {speed === 1 ? 'page' : 'pages'} per hour
           </SC.ReadingSpeed>
         </SC.ChartWrapper>
         <SC.RemoveReadingBtn
@@ -92,9 +92,9 @@ const DiaryItem = ({
   totalPages,
   bookId,
   setBook,
-  setDetailsType,
+  setDetailsType
 }) => {
-  if (sessions.length === 1 && sessions[0].status === "active") {
+  if (sessions.length === 1 && sessions[0].status === 'active') {
     return null;
   }
 
@@ -109,11 +109,11 @@ const DiaryItem = ({
         <SC.ItemHeader>
           <SC.Date data-is-today={isToday(day)}>{day}</SC.Date>
           <SC.ReadPages>
-            {readPages} {readPages === 1 ? "page" : "pages"}
+            {readPages} {readPages === 1 ? 'page' : 'pages'}
           </SC.ReadPages>
         </SC.ItemHeader>
         <SC.SessionList>
-          {[...sessions].reverse().map((session) => (
+          {[...sessions].reverse().map(session => (
             <SessionItem
               key={session._id}
               session={session}

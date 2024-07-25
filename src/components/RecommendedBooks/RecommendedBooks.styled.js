@@ -1,24 +1,24 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { InfoTitle } from "@/components/common/Dashboard/InfoBlock.styled";
-import { BaseBookImg } from "@/components/common/BookItem/BookItem.styled";
+import { InfoTitle } from '@/components/common/Dashboard/InfoBlock.styled';
+import { BaseBookImg } from '@/components/common/BookItem/BookItem.styled';
 
 export const RecommendedBooksTitle = styled(InfoTitle)`
-  margin-bottom: ${(p) => p.theme.spacing(5)};
+  margin-bottom: ${p => p.theme.spacing(5)};
 `;
 
 export const ListWrapper = styled.div`
   position: relative;
 
   min-height: 141px;
-  margin-bottom: ${(p) => p.theme.spacing(5)};
+  margin-bottom: ${p => p.theme.spacing(5)};
 `;
 
 export const BookList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: ${(p) => p.theme.spacing(5)};
+  gap: ${p => p.theme.spacing(5)};
 `;
 
 export const BookItem = styled.li`
@@ -33,7 +33,7 @@ export const BookImg = styled(BaseBookImg)`
 `;
 
 export const BookTitle = styled.h3`
-  margin-bottom: ${(p) => p.theme.spacing(0.5)};
+  margin-bottom: ${p => p.theme.spacing(0.5)};
 
   font-weight: 700;
   font-size: 10px;
@@ -50,7 +50,7 @@ export const BookAuthor = styled.h4`
   font-size: 10px;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: ${(p) => p.theme.colors.secondaryText};
+  color: ${p => p.theme.colors.secondaryText};
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

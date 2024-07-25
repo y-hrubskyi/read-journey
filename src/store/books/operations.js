@@ -1,9 +1,9 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import API from "@/services/axios";
+import API from '@/services/axios';
 
 export const fetchOwnLibrary = createAsyncThunk(
-  "books/fetchOwnLibrary",
+  'books/fetchOwnLibrary',
   async (searchParams, { rejectWithValue }) => {
     try {
       const { data } = await API.get(`/books/own?${searchParams}`);
@@ -15,7 +15,7 @@ export const fetchOwnLibrary = createAsyncThunk(
 );
 
 export const addToLibraryById = createAsyncThunk(
-  "books/addById",
+  'books/addById',
   async (bookId, { rejectWithValue }) => {
     try {
       const { data } = await API.post(`/books/add/${bookId}`);
@@ -27,7 +27,7 @@ export const addToLibraryById = createAsyncThunk(
 );
 
 export const removeFromLibraryById = createAsyncThunk(
-  "books/removeById",
+  'books/removeById',
   async (bookId, { rejectWithValue }) => {
     try {
       const { data } = await API.delete(`/books/remove/${bookId}`);
@@ -39,10 +39,10 @@ export const removeFromLibraryById = createAsyncThunk(
 );
 
 export const addToLibraryNewBook = createAsyncThunk(
-  "books/addNewBook",
+  'books/addNewBook',
   async (book, { rejectWithValue }) => {
     try {
-      const { data } = await API.post("/books/add", book);
+      const { data } = await API.post('/books/add', book);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

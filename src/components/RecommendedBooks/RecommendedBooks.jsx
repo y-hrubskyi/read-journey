@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { Icons } from "@/config/icons";
-import { useModal } from "@/hooks/useModal";
-import API from "@/services/axios";
+import { Icons } from '@/config/icons';
+import { useModal } from '@/hooks/useModal';
+import API from '@/services/axios';
 
 import {
   InfoWrapper,
   AnotherPageLinksWrapper,
   AnotherPageLink,
   AnotherPageLinkBtn,
-  ArrowIcon,
-} from "@/components/common/Dashboard/InfoBlock.styled";
-import { BookModal } from "@/components/common/BookModal/BookModal";
-import { Placeholder } from "@/components/common/Placeholder/Placeholder";
-import { Loader } from "@/components/common/Loader/Loader";
+  ArrowIcon
+} from '@/components/common/Dashboard/InfoBlock.styled';
+import { BookModal } from '@/components/common/BookModal/BookModal';
+import { Placeholder } from '@/components/common/Placeholder/Placeholder';
+import { Loader } from '@/components/common/Loader/Loader';
 
-import * as SC from "./RecommendedBooks.styled";
+import * as SC from './RecommendedBooks.styled';
 
 const BookItem = ({ book }) => {
   const { isModalOpen, toggleModal } = useModal();
@@ -68,7 +68,7 @@ export const RecommendedBooks = () => {
       <SC.ListWrapper>
         {content && (
           <SC.BookList>
-            {books.map((book) => (
+            {books.map(book => (
               <BookItem key={book._id} book={book} />
             ))}
           </SC.BookList>

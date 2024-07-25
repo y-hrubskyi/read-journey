@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const InfoWrapper = styled.div`
   display: flex;
@@ -17,8 +17,8 @@ export const RemoveBookBtn = styled.button`
   width: 28px;
   height: 28px;
 
-  background-color: ${(p) => p.theme.colors.redWithAlfa(0.1)};
-  border: 1px solid ${(p) => p.theme.colors.redWithAlfa(0.2)};
+  background-color: ${p => p.theme.colors.redWithAlfa(0.1)};
+  border: 1px solid ${p => p.theme.colors.redWithAlfa(0.2)};
   border-radius: 50%;
 `;
 
@@ -28,5 +28,5 @@ export const TrashIcon = styled.svg`
   height: 14px;
 
   fill: none;
-  stroke: ${(p) => p.theme.colors.redWithAlfa()};
+  stroke: ${p => p.theme.colors.redWithAlfa()};
 `;

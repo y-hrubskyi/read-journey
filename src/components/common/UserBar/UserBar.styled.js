@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const UserInfo = styled.div`
   display: flex;
   align-items: center;
-  gap: ${(p) => p.theme.spacing(2)};
+  gap: ${p => p.theme.spacing(2)};
 `;
 
 export const UserAvatar = styled.div`
@@ -17,10 +17,10 @@ export const UserAvatar = styled.div`
   font-size: 16px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: ${(p) => p.theme.colors.primaryText};
+  color: ${p => p.theme.colors.primaryText};
 
-  background-color: ${(p) => p.theme.colors.secondaryBg};
-  border: 1px solid ${(p) => p.theme.colors.btnBorder};
+  background-color: ${p => p.theme.colors.secondaryBg};
+  border: 1px solid ${p => p.theme.colors.btnBorder};
   border-radius: 50%;
 
   @media screen and (min-width: 768px) {
@@ -38,7 +38,7 @@ export const UserFullName = styled.p`
   font-size: 16px;
   line-height: 1.125;
   letter-spacing: -0.02em;
-  color: ${(p) => p.theme.colors.primaryText};
+  color: ${p => p.theme.colors.primaryText};
 
   @media screen and (min-width: 1280px) {
     display: block;

@@ -1,6 +1,6 @@
-import Select from "react-select";
+import Select from 'react-select';
 
-import { selectStyles } from "./SelectBase.styled";
+import { selectStyles } from './SelectBase.styled';
 
 export const SelectBase = ({ name, defaultValue, options, onChange }) => {
   return (
@@ -9,7 +9,7 @@ export const SelectBase = ({ name, defaultValue, options, onChange }) => {
       styles={selectStyles}
       options={options}
       defaultValue={defaultValue}
-      onChange={(selected) => onChange(selected?.value || "")}
+      onChange={selected => onChange(selected?.value || '')}
     />
   );
 };

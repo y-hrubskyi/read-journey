@@ -1,7 +1,7 @@
-import { useModal } from "@/hooks/useModal";
+import { useModal } from '@/hooks/useModal';
 
-import { BookModal } from "@/components/common/BookModal/BookModal";
-import * as SC from "./BookItem.styled";
+import { BookModal } from '@/components/common/BookModal/BookModal';
+import * as SC from './BookItem.styled';
 
 export const BookItem = ({ book }) => {
   const { isModalOpen, toggleModal } = useModal();

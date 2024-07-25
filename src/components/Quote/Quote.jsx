@@ -1,4 +1,4 @@
-import * as SC from "./Quote.styled";
+import * as SC from './Quote.styled';
 
 export const Quote = () => {
   return (

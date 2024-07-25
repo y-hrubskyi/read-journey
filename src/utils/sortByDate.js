@@ -1,6 +1,6 @@
-import { formatDate } from "@/utils/formatDate";
+import { formatDate } from '@/utils/formatDate';
 
-export const sortByDate = (array) => {
+export const sortByDate = array => {
   const sortedByDate = array.reduce((acc, item) => {
     const date = formatDate(item.startReading);
 

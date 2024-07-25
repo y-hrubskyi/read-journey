@@ -1,7 +1,7 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-import { bookFiltersSchema } from "@/config/validation/bookFiltersSchema";
+import { bookFiltersSchema } from '@/config/validation/bookFiltersSchema';
 
 import {
   Form,
@@ -9,28 +9,28 @@ import {
   FormTitle,
   TitleInput,
   AuthorInput,
-  SubmitBtn,
-} from "@/components/common/Dashboard/Form.styled";
-import { FormField } from "@/components/common/FormField/FormField";
+  SubmitBtn
+} from '@/components/common/Dashboard/Form.styled';
+import { FormField } from '@/components/common/FormField/FormField';
 
 export const Filters = ({ onSubmit }) => {
   const {
     register,
     watch,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
-    mode: "onChange",
-    resolver: yupResolver(bookFiltersSchema),
+    mode: 'onChange',
+    resolver: yupResolver(bookFiltersSchema)
   });
 
-  const title = watch("title");
-  const author = watch("author");
+  const title = watch('title');
+  const author = watch('author');
 
   const isCorrectTitle = title && !errors.title;
-  const hasErrorTitle = errors.title || (errors[""] && !title && !author);
+  const hasErrorTitle = errors.title || (errors[''] && !title && !author);
   const isCorrectAuthor = author && !errors.author;
-  const hasErrorAuthor = errors.author || (errors[""] && !author && !title);
+  const hasErrorAuthor = errors.author || (errors[''] && !author && !title);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -42,11 +42,11 @@ export const Filters = ({ onSubmit }) => {
           isCorrect={isCorrectTitle}
           correctMessage="Title is correct"
           hasError={hasErrorTitle}
-          errorMessage={errors.title?.message || errors[""]?.message}
+          errorMessage={errors.title?.message || errors['']?.message}
         >
           <TitleInput
             id="title"
-            {...register("title")}
+            {...register('title')}
             type="text"
             data-is-correct={isCorrectTitle}
             data-has-error={hasErrorTitle}
@@ -58,11 +58,11 @@ export const Filters = ({ onSubmit }) => {
           isCorrect={isCorrectAuthor}
           correctMessage="Author is correct"
           hasError={hasErrorAuthor}
-          errorMessage={errors.author?.message || errors[""]?.message}
+          errorMessage={errors.author?.message || errors['']?.message}
         >
           <AuthorInput
             id="author"
-            {...register("author")}
+            {...register('author')}
             type="text"
             data-is-correct={isCorrectAuthor}
             data-has-error={hasErrorAuthor}

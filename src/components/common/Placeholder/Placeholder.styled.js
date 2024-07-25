@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import BooksIMG from "@/assets/img/books.webp";
+import BooksIMG from '@/assets/img/books.webp';
 
 export const PlaceholderWrapper = styled.div`
   flex-grow: 1;
@@ -15,11 +15,11 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: ${(p) => p.theme.spacing(2.5)};
+  gap: ${p => p.theme.spacing(2.5)};
   height: 100%;
 
   @media screen and (min-width: 768px) {
-    gap: ${(p) => p.theme.spacing(5)};
+    gap: ${p => p.theme.spacing(5)};
   }
 `;
 
@@ -27,7 +27,7 @@ export const PlaceholderImg = styled.div`
   width: 100px;
   height: 100px;
 
-  background-color: ${(p) => p.theme.colors.secondaryBg};
+  background-color: ${p => p.theme.colors.secondaryBg};
   background-image: url(${BooksIMG});
   background-repeat: no-repeat;
   background-position: center;
@@ -50,7 +50,7 @@ export const PlaceholderText = styled.p`
   line-height: 1.28571;
   letter-spacing: -0.02em;
   text-align: center;
-  color: ${(p) => p.theme.colors.primaryText};
+  color: ${p => p.theme.colors.primaryText};
 
   @media screen and (min-width: 768px) {
     max-width: 274px;
@@ -58,5 +58,5 @@ export const PlaceholderText = styled.p`
 `;
 
 export const DarkenedText = styled.span`
-  color: ${(p) => p.theme.colors.secondaryText};
+  color: ${p => p.theme.colors.secondaryText};
 `;

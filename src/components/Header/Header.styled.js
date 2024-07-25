@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Header = styled.header`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: ${(p) => p.theme.spacing(4)};
-  margin-bottom: ${(p) => p.theme.spacing(4)};
+  padding: ${p => p.theme.spacing(4)};
+  margin-bottom: ${p => p.theme.spacing(4)};
 
-  background-color: ${(p) => p.theme.colors.primaryBg};
+  background-color: ${p => p.theme.colors.primaryBg};
   border-radius: 15px;
 
   @media screen and (min-width: 768px) {
@@ -19,35 +19,35 @@ export const UserMenu = styled.div`
   justify-self: end;
   display: flex;
   align-items: center;
-  gap: ${(p) => p.theme.spacing(4)};
+  gap: ${p => p.theme.spacing(4)};
 `;
 
 export const LogOutBtn = styled.button`
   align-self: end;
   justify-self: center;
 
-  padding: ${(p) => p.theme.spacing(2.25)} ${(p) => p.theme.spacing(4.75)};
+  padding: ${p => p.theme.spacing(2.25)} ${p => p.theme.spacing(4.75)};
 
   font-weight: 700;
   font-size: 14px;
   line-height: 1.28571;
   letter-spacing: 0.02em;
-  color: ${(p) => p.theme.colors.primaryText};
+  color: ${p => p.theme.colors.primaryText};
 
   background-color: transparent;
-  border: 1px solid ${(p) => p.theme.colors.btnBorder};
-  border-radius: ${(p) => p.theme.radii.btn};
+  border: 1px solid ${p => p.theme.colors.btnBorder};
+  border-radius: ${p => p.theme.radii.btn};
 
-  transition: ${(p) => p.theme.transition("color")},
-    ${(p) => p.theme.transition("border-color")},
-    ${(p) => p.theme.transition("background-color")};
+  transition: ${p => p.theme.transition('color')},
+    ${p => p.theme.transition('border-color')},
+    ${p => p.theme.transition('background-color')};
 
   &:hover,
   &:focus {
-    color: ${(p) => p.theme.colors.primaryBg};
+    color: ${p => p.theme.colors.primaryBg};
 
-    background-color: ${(p) => p.theme.colors.primaryText};
-    border-color: ${(p) => p.theme.colors.primaryText};
+    background-color: ${p => p.theme.colors.primaryText};
+    border-color: ${p => p.theme.colors.primaryText};
   }
 
   @media screen and (max-width: 767px) {
@@ -56,7 +56,7 @@ export const LogOutBtn = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    padding: ${(p) => p.theme.spacing(2.75)} ${(p) => p.theme.spacing(6.75)};
+    padding: ${p => p.theme.spacing(2.75)} ${p => p.theme.spacing(6.75)};
 
     font-size: 16px;
     line-height: 1.125;
@@ -68,7 +68,7 @@ export const MobileMenuBtn = styled.button`
   width: 28px;
   height: 28px;
 
-  color: ${(p) => p.theme.colors.primaryText};
+  color: ${p => p.theme.colors.primaryText};
 
   border: none;
   background-color: transparent;
@@ -88,14 +88,14 @@ export const MobileMenuBackdrop = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: ${(p) =>
-    p["data-mob-menu-open"] ? p.theme.colors.backdrop : "transparent"};
+  background-color: ${p =>
+    p['data-mob-menu-open'] ? p.theme.colors.backdrop : 'transparent'};
 
   z-index: 100;
-  transform: translateX(${(p) => (p["data-mob-menu-open"] ? "0%" : "100%")});
+  transform: translateX(${p => (p['data-mob-menu-open'] ? '0%' : '100%')});
 
-  transition: ${(p) => p.theme.transition("background-color")},
-    ${(p) => p.theme.transition("transform")};
+  transition: ${p => p.theme.transition('background-color')},
+    ${p => p.theme.transition('transform')};
 `;
 
 export const MobileMenu = styled.div`
@@ -106,10 +106,10 @@ export const MobileMenu = styled.div`
   height: 100%;
 
   display: grid;
-  padding-top: ${(p) => p.theme.spacing(10)};
-  padding-bottom: ${(p) => p.theme.spacing(10)};
+  padding-top: ${p => p.theme.spacing(10)};
+  padding-bottom: ${p => p.theme.spacing(10)};
 
-  background-color: ${(p) => p.theme.colors.secondaryBg};
+  background-color: ${p => p.theme.colors.secondaryBg};
 `;
 
 export const MobileMenuCloseBtn = styled(MobileMenuBtn)`

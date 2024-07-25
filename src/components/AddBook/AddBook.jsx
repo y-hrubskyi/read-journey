@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useDispatch } from "react-redux";
-import toast from "react-hot-toast";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 
-import { addBookSchema } from "@/config/validation/addBookSchema";
-import { addToLibraryNewBook } from "@/store/books/operations";
+import { addBookSchema } from '@/config/validation/addBookSchema';
+import { addToLibraryNewBook } from '@/store/books/operations';
 
 import {
   Form,
@@ -13,12 +13,12 @@ import {
   FormTitle,
   SubmitBtn,
   TitleInput,
-  AuthorInput,
-} from "@/components/common/Dashboard/Form.styled";
-import { FormField } from "@/components/common/FormField/FormField";
-import { NewBookAddedModal } from "@/components/NewBookAddedModal/NewBookAddedModal";
+  AuthorInput
+} from '@/components/common/Dashboard/Form.styled';
+import { FormField } from '@/components/common/FormField/FormField';
+import { NewBookAddedModal } from '@/components/NewBookAddedModal/NewBookAddedModal';
 
-import * as SC from "./AddBook.styled";
+import * as SC from './AddBook.styled';
 
 export const AddBook = () => {
   const [isNotifyShown, setIsNotifyShown] = useState(false);
@@ -27,18 +27,18 @@ export const AddBook = () => {
     register,
     handleSubmit,
     formState: { errors, dirtyFields },
-    reset,
+    reset
   } = useForm({
-    mode: "onChange",
-    resolver: yupResolver(addBookSchema),
+    mode: 'onChange',
+    resolver: yupResolver(addBookSchema)
   });
 
   const toggleNotify = () => {
-    setIsNotifyShown((prevState) => !prevState);
+    setIsNotifyShown(prevState => !prevState);
   };
 
-  const onSubmit = async (data) => {
-    const toastId = toast.loading("Adding...");
+  const onSubmit = async data => {
+    const toastId = toast.loading('Adding...');
 
     try {
       await dispatch(addToLibraryNewBook(data)).unwrap();
@@ -74,7 +74,7 @@ export const AddBook = () => {
           >
             <TitleInput
               id="title"
-              {...register("title")}
+              {...register('title')}
               type="text"
               data-is-correct={isCorrectTitle}
               data-has-error={hasErrorTitle}
@@ -90,7 +90,7 @@ export const AddBook = () => {
           >
             <AuthorInput
               id="author"
-              {...register("author")}
+              {...register('author')}
               type="text"
               data-is-correct={isCorrectAuthor}
               data-has-error={hasErrorAuthor}
@@ -106,7 +106,7 @@ export const AddBook = () => {
           >
             <SC.PagesInput
               id="totalPages"
-              {...register("totalPages")}
+              {...register('totalPages')}
               type="text"
               data-is-correct={isCorrectPages}
               data-has-error={hasErrorPages}

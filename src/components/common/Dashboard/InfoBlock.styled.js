@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const InfoWrapper = styled.div`
-  padding: ${(p) => p.theme.spacing(5)};
+  padding: ${p => p.theme.spacing(5)};
   width: 100%;
 
-  background-color: ${(p) => p.theme.colors.secondaryBg};
+  background-color: ${p => p.theme.colors.secondaryBg};
   border-radius: 12px;
 `;
 
@@ -14,7 +14,7 @@ export const InfoTitle = styled.p`
   font-size: 18px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: ${(p) => p.theme.colors.primaryText};
+  color: ${p => p.theme.colors.primaryText};
 
   @media screen and (min-width: 768px) {
     font-size: 20px;
@@ -35,13 +35,13 @@ export const AnotherPageLink = styled(Link)`
   letter-spacing: -0.02em;
   text-decoration: underline;
   text-decoration-skip-ink: none;
-  color: ${(p) => p.theme.colors.secondaryText};
+  color: ${p => p.theme.colors.secondaryText};
 
-  transition: ${(p) => p.theme.transition("color")};
+  transition: ${p => p.theme.transition('color')};
 
   &:hover,
   &:focus {
-    color: ${(p) => p.theme.colors.primaryText};
+    color: ${p => p.theme.colors.primaryText};
   }
 `;
 
@@ -52,7 +52,7 @@ export const AnotherPageLinkBtn = styled(Link)`
   width: 24px;
   height: 24px;
 
-  color: ${(p) => p.theme.colors.primaryText};
+  color: ${p => p.theme.colors.primaryText};
 `;
 
 export const ArrowIcon = styled.svg`

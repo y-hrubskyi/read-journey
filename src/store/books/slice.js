@@ -1,38 +1,38 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
 import {
   fetchOwnLibrary,
   addToLibraryNewBook,
   addToLibraryById,
-  removeFromLibraryById,
-} from "./operations";
+  removeFromLibraryById
+} from './operations';
 
 const initialState = {
-  library: [],
+  library: []
 };
 
 const booksSlice = createSlice({
-  name: "books",
+  name: 'books',
   initialState,
   reducers: {
-    clearLibrary: (state) => {
+    clearLibrary: state => {
       state.library = [];
-    },
+    }
   },
-  extraReducers: (builder) =>
+  extraReducers: builder =>
     builder
       .addCase(fetchOwnLibrary.fulfilled, (state, { payload }) => {
         state.library = payload;
       })
       .addCase(removeFromLibraryById.fulfilled, (state, { payload }) => {
-        state.library = state.library.filter((book) => book._id !== payload.id);
+        state.library = state.library.filter(book => book._id !== payload.id);
       })
       .addMatcher(
         isAnyOf(addToLibraryNewBook.fulfilled, addToLibraryById.fulfilled),
         (state, { payload }) => {
           state.library.push(payload);
         }
-      ),
+      )
 });
 
 export const { clearLibrary } = booksSlice.actions;

@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const DetailsNav = styled.div`
   display: flex;
-  gap: ${(p) => p.theme.spacing(2)};
+  gap: ${p => p.theme.spacing(2)};
 `;
 
 export const DetailsNavBtn = styled.button`
@@ -17,6 +17,6 @@ export const DetailsNavIcon = styled.svg`
   height: 20px;
 
   fill: none;
-  stroke: ${(p) =>
-    p.theme.colors[p["data-is-active"] ? "primaryText" : "secondaryText"]};
+  stroke: ${p =>
+    p.theme.colors[p['data-is-active'] ? 'primaryText' : 'secondaryText']};
 `;
