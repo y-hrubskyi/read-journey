@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BaseBookImg } from '@/components/common/BookItem/BookItem.styled';
+import { BaseBookImg } from '~/components/common/BookItem/BookItem.styled';
 
 export const Content = styled.div`
   display: flex;

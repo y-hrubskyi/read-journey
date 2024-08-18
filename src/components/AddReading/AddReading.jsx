@@ -4,19 +4,19 @@ import toast from 'react-hot-toast';
 import {
   finishReadingSchema,
   startReadingSchema
-} from '@/config/validation/addReadingSchema';
-import API from '@/services/axios';
-import { useCustomForm } from '@/hooks/useCustomForm';
-import { getLastReadPage } from '@/utils/getLastReadPage';
+} from '~/config/validation/addReadingSchema';
+import API from '~/services/axios';
+import { useCustomForm } from '~/hooks/useCustomForm';
+import { getLastReadPage } from '~/utils/getLastReadPage';
 
 import {
   Form,
   FieldsWrapper,
   FormTitle,
   SubmitBtn
-} from '@/components/common/Dashboard/Form.styled';
-import { FormField } from '@/components/common/FormField/FormField';
-import { BookReadModal } from '@/components/BookReadModal/BookReadModal';
+} from '~/components/common/Dashboard/Form.styled';
+import { FormField } from '~/components/common/FormField/FormField';
+import { BookReadModal } from '~/components/BookReadModal/BookReadModal';
 
 import * as SC from './AddReading.styled';
 

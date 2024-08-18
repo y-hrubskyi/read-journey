@@ -1,4 +1,4 @@
-import { BookItem } from '@/components/common/BookItem/BookItem';
+import { BookItem } from '~/components/common/BookItem/BookItem';
 import * as SC from './BookList.styled';
 
 export const BookList = ({ books }) => {

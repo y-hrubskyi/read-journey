@@ -1,12 +1,12 @@
 import toast from 'react-hot-toast';
 
-import { Icons } from '@/config/icons';
-import API from '@/services/axios';
-import { sortByDate } from '@/utils/sortByDate';
-import { getLastReadPage } from '@/utils/getLastReadPage';
-import { calcProgress } from '@/utils/calcProgress';
-import { calcTime } from '@/utils/calcTime';
-import { isToday } from '@/utils/isToday';
+import { Icons } from '~/config/icons';
+import API from '~/services/axios';
+import { sortByDate } from '~/utils/sortByDate';
+import { getLastReadPage } from '~/utils/getLastReadPage';
+import { calcProgress } from '~/utils/calcProgress';
+import { calcTime } from '~/utils/calcTime';
+import { isToday } from '~/utils/isToday';
 
 import { DetailsTitle, InfoBlock, InfoBlockHeader } from '../Details.styled';
 import { DetailsNav } from '../DetailsNav/DetailsNav';

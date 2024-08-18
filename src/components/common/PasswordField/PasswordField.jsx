@@ -1,4 +1,4 @@
-import { Icons } from '@/config/icons';
+import { Icons } from '~/config/icons';
 
 import {
   FieldWrapper,
@@ -7,7 +7,7 @@ import {
   CorrectMessage,
   ErrorIcon,
   ErrorMessage
-} from '@/components/common/FormField/FormField.styled';
+} from '~/components/common/FormField/FormField.styled';
 import * as SC from './PasswordField.styled';
 
 export const PasswordField = ({

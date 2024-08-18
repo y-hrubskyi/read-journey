@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BaseFieldsWrapper } from '@/components/common/FormField/FormField.styled';
+import { BaseFieldsWrapper } from '~/components/common/FormField/FormField.styled';
 
 export const FieldsWrapper = styled(BaseFieldsWrapper)`
   margin-bottom: ${p => p.theme.spacing(5)};

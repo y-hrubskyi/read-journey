@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { bookFiltersSchema } from '@/config/validation/bookFiltersSchema';
+import { bookFiltersSchema } from '~/config/validation/bookFiltersSchema';
 
 import {
   Form,
@@ -10,8 +10,8 @@ import {
   TitleInput,
   AuthorInput,
   SubmitBtn
-} from '@/components/common/Dashboard/Form.styled';
-import { FormField } from '@/components/common/FormField/FormField';
+} from '~/components/common/Dashboard/Form.styled';
+import { FormField } from '~/components/common/FormField/FormField';
 
 export const Filters = ({ onSubmit }) => {
   const {

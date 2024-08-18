@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { BaseDashboard } from '@/components/common/Dashboard/Dashboard.styled';
-import { BasePageContent } from '@/components/common/PageContent/PageContent.styled';
+import { BaseDashboard } from '~/components/common/Dashboard/Dashboard.styled';
+import { BasePageContent } from '~/components/common/PageContent/PageContent.styled';
 
 export const Dashboard = styled(BaseDashboard)`
   display: flex;

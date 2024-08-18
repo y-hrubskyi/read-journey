@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
-import { ModalTypes } from '@/config/modals';
-import { selectOwnLibrary } from '@/store/books/selectors';
-import { addToLibraryById } from '@/store/books/operations';
+import { ModalTypes } from '~/config/modals';
+import { selectOwnLibrary } from '~/store/books/selectors';
+import { addToLibraryById } from '~/store/books/operations';
 
-import { ModalBase } from '@/components/common/ModalBase/ModalBase';
+import { ModalBase } from '~/components/common/ModalBase/ModalBase';
 import * as SC from './BookModal.styled';
 
 export const BookModal = ({ isOpen, onClose, book }) => {

@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Logo } from '@/components/common/Logo/Logo';
+import { Logo } from '~/components/common/Logo/Logo';
 import * as SC from './RestrictedLayout.styled';
 
 export const RestrictedLayout = () => {

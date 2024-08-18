@@ -4,8 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 
-import { addBookSchema } from '@/config/validation/addBookSchema';
-import { addToLibraryNewBook } from '@/store/books/operations';
+import { addBookSchema } from '~/config/validation/addBookSchema';
+import { addToLibraryNewBook } from '~/store/books/operations';
 
 import {
   Form,
@@ -14,9 +14,9 @@ import {
   SubmitBtn,
   TitleInput,
   AuthorInput
-} from '@/components/common/Dashboard/Form.styled';
-import { FormField } from '@/components/common/FormField/FormField';
-import { NewBookAddedModal } from '@/components/NewBookAddedModal/NewBookAddedModal';
+} from '~/components/common/Dashboard/Form.styled';
+import { FormField } from '~/components/common/FormField/FormField';
+import { NewBookAddedModal } from '~/components/NewBookAddedModal/NewBookAddedModal';
 
 import * as SC from './AddBook.styled';
 

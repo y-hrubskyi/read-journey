@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectOwnLibrary } from '@/store/books/selectors';
-import { fetchOwnLibrary } from '@/store/books/operations';
-import { usePagination } from '@/hooks/usePagination';
+import { selectOwnLibrary } from '~/store/books/selectors';
+import { fetchOwnLibrary } from '~/store/books/operations';
+import { usePagination } from '~/hooks/usePagination';
 
-import { AddBook } from '@/components/AddBook/AddBook';
-import { RecommendedBooks } from '@/components/RecommendedBooks/RecommendedBooks';
+import { AddBook } from '~/components/AddBook/AddBook';
+import { RecommendedBooks } from '~/components/RecommendedBooks/RecommendedBooks';
 import {
   BookListPageContent,
   ContentWrapper,
   HeaderWrapper,
   PageTitle
-} from '@/components/common/PageContent/PageContent.styled';
-import { Paginator } from '@/components/common/Paginator/Paginator';
-import { SelectBase } from '@/components/common/SelectBase/SelectBase';
-import { BookList } from '@/components/common/BookList/BookList.styled';
-import { OwnBookItem } from '@/components/common/OwnBookItem/OwnBookItem';
-import { Loader } from '@/components/common/Loader/Loader';
-import { Placeholder } from '@/components/common/Placeholder/Placeholder';
-import { DarkenedText } from '@/components/common/Placeholder/Placeholder.styled';
+} from '~/components/common/PageContent/PageContent.styled';
+import { Paginator } from '~/components/common/Paginator/Paginator';
+import { SelectBase } from '~/components/common/SelectBase/SelectBase';
+import { BookList } from '~/components/common/BookList/BookList.styled';
+import { OwnBookItem } from '~/components/common/OwnBookItem/OwnBookItem';
+import { Loader } from '~/components/common/Loader/Loader';
+import { Placeholder } from '~/components/common/Placeholder/Placeholder';
+import { DarkenedText } from '~/components/common/Placeholder/Placeholder.styled';
 
 import * as SC from './LibraryPage.styled';
 

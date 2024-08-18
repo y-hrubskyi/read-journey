@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BaseBookImg } from '@/components/common/BookItem/BookItem.styled';
+import { BaseBookImg } from '~/components/common/BookItem/BookItem.styled';
 
 export const BookImg = styled(BaseBookImg)`
   width: 140px;

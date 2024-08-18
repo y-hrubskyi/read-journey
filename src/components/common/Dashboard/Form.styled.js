@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BaseInput } from '@/components/common/FormField/FormField.styled';
+import { BaseInput } from '~/components/common/FormField/FormField.styled';
 
 export const Form = styled.form`
   flex-shrink: 0;

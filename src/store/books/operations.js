@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import API from '@/services/axios';
+import API from '~/services/axios';
 
 export const fetchOwnLibrary = createAsyncThunk(
   'books/fetchOwnLibrary',

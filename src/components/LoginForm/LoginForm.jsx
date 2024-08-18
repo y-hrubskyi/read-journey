@@ -4,17 +4,17 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import toast from 'react-hot-toast';
 
-import { signInSchema } from '@/config/validation/signInSchema';
-import { selectAuthIsLoading } from '@/store/auth/selectors';
-import { signIn } from '@/store/auth/operations';
+import { signInSchema } from '~/config/validation/signInSchema';
+import { selectAuthIsLoading } from '~/store/auth/selectors';
+import { signIn } from '~/store/auth/operations';
 
-import { FormField } from '@/components/common/FormField/FormField';
-import { PasswordField } from '@/components/common/PasswordField/PasswordField';
+import { FormField } from '~/components/common/FormField/FormField';
+import { PasswordField } from '~/components/common/PasswordField/PasswordField';
 import {
   EmailInput,
   PasswordInput,
   AuthPageLink
-} from '@/components/common/AuthForm/AuthForm.styled';
+} from '~/components/common/AuthForm/AuthForm.styled';
 import * as SC from './LoginForm.styled';
 
 export const LoginForm = () => {

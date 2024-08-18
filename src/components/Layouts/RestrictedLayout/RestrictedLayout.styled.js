@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import PreviewIMG from '@/assets/img/preview.webp';
+import PreviewIMG from '~/assets/img/preview.webp';
 
-import { BaseContainer } from '@/components/common/Layout/Layout.styled';
+import { BaseContainer } from '~/components/common/Layout/Layout.styled';
 
 export const Container = styled(BaseContainer)`
   display: flex;

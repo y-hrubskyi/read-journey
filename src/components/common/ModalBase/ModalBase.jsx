@@ -1,7 +1,7 @@
 import Modal from 'react-modal';
 
-import { ModalTypes } from '@/config/modals';
-import { Icons } from '@/config/icons';
+import { ModalTypes } from '~/config/modals';
+import { Icons } from '~/config/icons';
 
 import * as SC from './ModalBase.styled';
 

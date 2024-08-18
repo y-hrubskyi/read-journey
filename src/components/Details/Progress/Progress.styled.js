@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import StarIMG from '@/assets/img/star.webp';
+import StarIMG from '~/assets/img/star.webp';
 
-import { InfoTitle } from '@/components/common/Dashboard/InfoBlock.styled';
+import { InfoTitle } from '~/components/common/Dashboard/InfoBlock.styled';
 
 export const Wrapper = styled.div`
   @media screen and (min-width: 768px) {

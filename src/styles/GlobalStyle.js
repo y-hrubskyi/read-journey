@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
-import GilroyMediumWOFF2 from '@/assets/fonts/Gilroy-Medium.woff2';
-import GilroyBoldWOFF2 from '@/assets/fonts/Gilroy-Bold.woff2';
+import GilroyMediumWOFF2 from '~/assets/fonts/Gilroy-Medium.woff2';
+import GilroyBoldWOFF2 from '~/assets/fonts/Gilroy-Bold.woff2';
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {

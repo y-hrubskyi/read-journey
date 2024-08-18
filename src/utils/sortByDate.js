@@ -1,4 +1,4 @@
-import { formatDate } from '@/utils/formatDate';
+import { formatDate } from '~/utils/formatDate';
 
 export const sortByDate = array => {
   const sortedByDate = array.reduce((acc, item) => {

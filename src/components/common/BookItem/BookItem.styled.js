@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import BookPlaceholder from '@/assets/img/book-placeholder.webp';
+import BookPlaceholder from '~/assets/img/book-placeholder.webp';
 
 export const BookCard = styled.li`
   width: 137px;

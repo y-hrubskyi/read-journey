@@ -1,4 +1,4 @@
-import { Icons } from '@/config/icons';
+import { Icons } from '~/config/icons';
 
 import {
   InfoWrapper,
@@ -6,7 +6,7 @@ import {
   AnotherPageLink,
   AnotherPageLinkBtn,
   ArrowIcon
-} from '@/components/common/Dashboard/InfoBlock.styled';
+} from '~/components/common/Dashboard/InfoBlock.styled';
 import * as SC from './Guide.styled';
 
 export const Guide = () => {

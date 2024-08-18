@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { InfoTitle } from '@/components/common/Dashboard/InfoBlock.styled';
-import { BaseBookImg } from '@/components/common/BookItem/BookItem.styled';
+import { InfoTitle } from '~/components/common/Dashboard/InfoBlock.styled';
+import { BaseBookImg } from '~/components/common/BookItem/BookItem.styled';
 
 export const RecommendedBooksTitle = styled(InfoTitle)`
   margin-bottom: ${p => p.theme.spacing(5)};

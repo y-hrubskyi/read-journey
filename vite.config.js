@@ -7,7 +7,7 @@ export default defineConfig({
   base: '/read-journey/',
   resolve: {
     alias: {
-      '@': '/src'
+      '~': '/src'
     }
   }
 });

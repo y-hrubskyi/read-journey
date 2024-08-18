@@ -1,4 +1,4 @@
-import { DeviceTypes } from '@/config/deviceTypes';
+import { DeviceTypes } from '~/config/deviceTypes';
 
 export const BooksLimit = {
   [DeviceTypes.MOBILE]: 2,

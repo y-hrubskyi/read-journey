@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BaseDashboard } from '@/components/common/Dashboard/Dashboard.styled';
+import { BaseDashboard } from '~/components/common/Dashboard/Dashboard.styled';
 
 export const Dashboard = styled(BaseDashboard)`
   display: flex;

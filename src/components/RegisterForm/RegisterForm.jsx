@@ -4,19 +4,19 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import toast from 'react-hot-toast';
 
-import { signUpSchema } from '@/config/validation/signUpSchema';
-import { selectAuthIsLoading } from '@/store/auth/selectors';
-import { signUp } from '@/store/auth/operations';
+import { signUpSchema } from '~/config/validation/signUpSchema';
+import { selectAuthIsLoading } from '~/store/auth/selectors';
+import { signUp } from '~/store/auth/operations';
 
-import { FormField } from '@/components/common/FormField/FormField';
-import { PasswordField } from '@/components/common/PasswordField/PasswordField';
+import { FormField } from '~/components/common/FormField/FormField';
+import { PasswordField } from '~/components/common/PasswordField/PasswordField';
 import {
   NameInput,
   EmailInput,
   PasswordInput,
   AuthSubmitBtn,
   AuthPageLink
-} from '@/components/common/AuthForm/AuthForm.styled';
+} from '~/components/common/AuthForm/AuthForm.styled';
 import * as SC from './RegisterForm.styled';
 
 export const RegisterForm = () => {

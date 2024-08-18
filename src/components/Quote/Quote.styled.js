@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import BooksIMG from '@/assets/img/books.webp';
+import BooksIMG from '~/assets/img/books.webp';
 
 export const QuoteWrapper = styled.div`
   display: none;

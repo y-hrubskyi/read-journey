@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { BaseFieldsWrapper } from '@/components/common/FormField/FormField.styled';
-import { AuthSubmitBtn } from '@/components/common/AuthForm/AuthForm.styled';
+import { BaseFieldsWrapper } from '~/components/common/FormField/FormField.styled';
+import { AuthSubmitBtn } from '~/components/common/AuthForm/AuthForm.styled';
 
 export const FieldsWrapper = styled(BaseFieldsWrapper)`
   margin-bottom: ${p => p.theme.spacing(18)};

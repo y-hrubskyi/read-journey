@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import BooksIMG from '@/assets/img/books.webp';
+import BooksIMG from '~/assets/img/books.webp';
 
 export const PlaceholderWrapper = styled.div`
   flex-grow: 1;

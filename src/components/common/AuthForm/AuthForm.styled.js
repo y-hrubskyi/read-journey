@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { BaseInput } from '@/components/common/FormField/FormField.styled';
+import { BaseInput } from '~/components/common/FormField/FormField.styled';
 
 export const NameInput = styled(BaseInput)`
   padding-left: ${p => p.theme.spacing(14.5)};

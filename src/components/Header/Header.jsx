@@ -2,14 +2,14 @@ import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 
-import { Icons } from '@/config/icons';
-import { selectAuthIsLoading } from '@/store/auth/selectors';
-import { signOut } from '@/store/auth/operations';
-import { clearLibrary } from '@/store/books/slice';
+import { Icons } from '~/config/icons';
+import { selectAuthIsLoading } from '~/store/auth/selectors';
+import { signOut } from '~/store/auth/operations';
+import { clearLibrary } from '~/store/books/slice';
 
-import { Logo } from '@/components/common/Logo/Logo';
-import { UserNav } from '@/components/common/UserNav/UserNav';
-import { UserBar } from '@/components/common/UserBar/UserBar';
+import { Logo } from '~/components/common/Logo/Logo';
+import { UserNav } from '~/components/common/UserNav/UserNav';
+import { UserBar } from '~/components/common/UserBar/UserBar';
 import * as SC from './Header.styled';
 
 export const Header = () => {

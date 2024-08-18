@@ -1,5 +1,5 @@
-import { getLastReadPage } from '@/utils/getLastReadPage';
-import { calcProgress } from '@/utils/calcProgress';
+import { getLastReadPage } from '~/utils/getLastReadPage';
+import { calcProgress } from '~/utils/calcProgress';
 
 import { DetailsTitle, InfoBlock, InfoBlockHeader } from '../Details.styled';
 import { DetailsNav } from '../DetailsNav/DetailsNav';

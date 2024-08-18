@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import API from '@/services/axios';
-import { getLastReadPage } from '@/utils/getLastReadPage';
+import API from '~/services/axios';
+import { getLastReadPage } from '~/utils/getLastReadPage';
 
-import { AddReading } from '@/components/AddReading/AddReading';
-import { Details } from '@/components/Details/Details';
+import { AddReading } from '~/components/AddReading/AddReading';
+import { Details } from '~/components/Details/Details';
 import {
   ContentWrapper,
   HeaderWrapper,
   PageTitle
-} from '@/components/common/PageContent/PageContent.styled';
-import { MyBook } from '@/components/MyBook/MyBook';
-import { Loader } from '@/components/common/Loader/Loader';
-import { Placeholder } from '@/components/common/Placeholder/Placeholder';
-import { DarkenedText } from '@/components/common/Placeholder/Placeholder.styled';
+} from '~/components/common/PageContent/PageContent.styled';
+import { MyBook } from '~/components/MyBook/MyBook';
+import { Loader } from '~/components/common/Loader/Loader';
+import { Placeholder } from '~/components/common/Placeholder/Placeholder';
+import { DarkenedText } from '~/components/common/Placeholder/Placeholder.styled';
 
 import * as SC from './ReadingPage.styled';
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { store } from '@/store/store';
-import { setTokens } from '@/store/auth/slice';
+import { store } from '~/store/store';
+import { setTokens } from '~/store/auth/slice';
 
 const instance = axios.create({
   baseURL: 'https://readjourney.b.goit.study/api'

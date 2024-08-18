@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { InfoTitle } from '@/components/common/Dashboard/InfoBlock.styled';
+import { InfoTitle } from '~/components/common/Dashboard/InfoBlock.styled';
 
 export const GuideTitle = styled(InfoTitle)`
   margin-bottom: ${p => p.theme.spacing(5)};
